@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Reapp]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://reapp.io/"/>
+  <updated>2015-03-09T04:18:04.000Z</updated>
+  <id>http://reapp.io/</id>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Welcome to Reapp]]></title>
+    <link href="http://reapp.io/2015/03/08/Welcome-to-Reapp/"/>
+    <id>http://reapp.io/2015/03/08/Welcome-to-Reapp/</id>
+    <published>2015-03-09T04:05:28.000Z</published>
+    <updated>2015-03-09T04:18:04.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to the Reapp blog.</p>
+<p>We've spend a lot of time getting the documentation and presentation of the
+website here just right, but it's due time to improve the community. Along
+with our own <a href="https://gitter.im/reapp/reapp" target="_blank" rel="external">Gitter channel for chatting</a>
+and <a href="https://twitter.com/reapp" target="_blank" rel="external">Twitter account for news</a>,
+we're starting this blog.</p>
+<p>Reapp is moving at breakneck speed. We have huge ambitions and exciting things
+in the pipeline. A Material UI theme is coming. As are new components.</p>
+<p>But first, we want to start by
+creating the best documentation of any app platform.</p>
+<p>Starting this week we'll be publishing a series of articles on using Reapp.
+These will be guides on building real-world apps as well as walkthrough on
+how to use the more impressive technical features of Reapp.</p>
+<p>We already have an exciting full-length walthrough coming out on <a href="http://scotch.io" target="_blank" rel="external">Scotch.io</a>
+shortly. We have some great <a href="https://github.com/reapp/hacker-news-app" target="_blank" rel="external">example</a> <a href="https://github.com/reapp/kitchen-sink" target="_blank" rel="external">apps</a>
+you can look at for inspiration in structuring your apps.</p>
+<p>Finally, we have some big client using Reapp, that will launch their apps in less
+time than ever before.</p>
+<p>So keep posted here, exciting times are ahead.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to the Reapp blog.</p>
+<p>We've spend a lot of time getting the documentation and presentation of the
+website here just right, bu]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
