@@ -1,0 +1,30 @@
+.page {
+  background: #fff;
+  padding: 1rem 0 8rem;
+  color: #222;
+}
+.page a {
+  color: #368fc1;
+}
+.page a:hover {
+  color: #73bdeb;
+}
+.page p,
+.page ul,
+.page code {
+  color: #555;
+}
+.page p,
+.page ul {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.page em {
+  color: #777;
+}
+.page.blog {
+  padding-top: 3rem;
+}
+.page h1 {
+  font-size: 32px;
+}

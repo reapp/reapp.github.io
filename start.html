@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="utf-8">
+
+  <title>start |  Reapp - Hybrid apps, fast</title>
+  <meta name="description" content="What is it?
+Reapp is everything you need to build amazing hybrid apps with React: a collection of
+modules that work together, a UI kit, and our CLI that bootstraps your app and has a
+pre-configured bu">
+<meta property="og:type" content="website">
+<meta property="og:title" content="start">
+<meta property="og:url" content="http://reapp.io/start.html">
+<meta property="og:site_name" content="Reapp">
+<meta property="og:description" content="What is it?
+Reapp is everything you need to build amazing hybrid apps with React: a collection of
+modules that work together, a UI kit, and our CLI that bootstraps your app and has a
+pre-configured bu">
+<meta property="og:image" content="https://badges.gitter.im/Join%20Chat.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="start">
+<meta name="twitter:description" content="What is it?
+Reapp is everything you need to build amazing hybrid apps with React: a collection of
+modules that work together, a UI kit, and our CLI that bootstraps your app and has a
+pre-configured bu">
+
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="alternative" href="/atom.xml" title="Reapp" type="application/atom+xml">
+</head>
+<body>
+  <a id="github" class="hide-md hide-sm" href="https://github.com/reapp/reapp" target="_blank">
+  Star on Github
+</a>
+
+<header class="header">
+  <div class="row">
+    <h1 class="logo"><a href="/">Reapp</a></h1>
+
+    <nav class="nav">
+      <a class="active" href="/start.html">Get Started</a>
+      <a  href="/modules.html">Documentation</a>
+      <a  href="/blog">Blog</a>
+    </nav>
+
+    <nav class="nav right">
+      <a href="https://twitter.com/reapp">@reapp</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page start">
+  <div class="row">
+    <div id="nav" class="col-xs-12 col-md-5">
+      <!-- nav.js will generate this -->
+    </div>
+
+    <div class="col-xs-12 col-md-7 first-xs pad-right">
+      <h3>What is it?</h3>
+<p>Reapp is everything you need to build amazing hybrid apps with React: a collection of
+modules that work together, a UI kit, and our CLI that bootstraps your app and has a
+pre-configured build server.</p>
+<h3>Help</h3>
+<p><a href="https://gitter.im/reapp/reapp?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank" rel="external"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/reapp/reapp"></a></p>
+<h3>Examples</h3>
+<p>We have two example apps you can check the source to:</p>
+<ul>
+<li><a href="https://github.com/reapp/kitchen-sink" target="_blank" rel="external">Kitchen Sink</a> (<a href="http://kitchen.reapp.io" target="_blank" rel="external">demo</a>)</li>
+<li><a href="https://github.com/reapp/hacker-news-app" target="_blank" rel="external">Hacker News Reader</a> (<a href="http://hn.reapp.io" target="_blank" rel="external">demo</a>)</li>
+</ul>
+<h3>Installation</h3>
+<p>Installation is done through npm, though you can pick and choose any pieces you'd like
+and roll your own stack. To get the reapp CLI:</p>
+<pre><code>npm install -g reapp
+</code></pre>
+<p>Once that's done you can generate a new base reapp stack with:</p>
+<pre><code>reapp new [name]
+</code></pre>
+<p>Where [name] is the name you'd like to give your new stack.</p>
+<h3>CLI</h3>
+<p>The CLI has two main functions that it helps you with. The first is creating new apps.
+For now, it simply makes a bare clone of a repo we keep updated with the current best-practice.
+The goal is eventually to have a variety of baseline repo's to choose from.</p>
+<p>It also lets you run your app, using <a href="https://github.com/reapp/reapp-server" target="_blank" rel="external">reapp-server</a>,
+a simple express server that works well with the default app structure.</p>
+<p>CLI Usage:</p>
+<pre><code>Usage: reapp [command]
+
+  new [name]  creates a directory with a new reapp-starter scaffold
+  run         runs a reapp application with express/webpack-dev-server
+  build       builds a reapp application to a bundle in ./build
+  debug       use this to for opening issues!
+  help [cmd]  display help for [cmd]
+</code></pre>
+<p>The build and run commands take a variety of options to help ease your development, such as:</p>
+<pre><code>Usage: reapp-run [options]
+
+  -h, --help           output usage information
+  -d, --debug          output extra information for debugging
+  -p, --port [number]  specify a port [number]
+  -h, --host [host]    specify hostname
+  -e, --env [env]      specify an enivornment
+  -t, --tool [tool]    specify a webpack devtool
+</code></pre>
+<pre><code>Usage: reapp-build [options]
+
+  -h, --help   output usage information
+  -w, --watch  watch for changes
+  -d, --debug  output extra information for debugging
+  --no-assets  only build the js
+  --no-js      only build the assets
+</code></pre>
+<h3>Running &amp; Building Reapp</h3>
+<p>The <code>run</code> command has a few options to help you out. You can do:</p>
+<ul>
+<li><code>reapp run -d</code> (debug) to output information on how it's running your app</li>
+<li><code>reapp run -e production</code> (env=production) to run your app in production mode, which is much faster</li>
+<li><code>reapp run -t source-map</code> (tool=source-map) to have full sourcemaps rather than the &quot;eval&quot; style sourcemaps we default to</li>
+</ul>
+<p>You also have the same flags available as the run commands.</p>
+<p>The <code>build</code> command is used once you're ready to deploy your app (to either the web or to cordova). For now,
+we provide two types of builds:</p>
+<ul>
+<li><code>reapp build</code> targets the web for mobile sites.</li>
+<li><code>reapp build ios</code> targets cordova ios devices.</li>
+</ul>
+<p><a href="#custom-builds">See more on custom builds</a>.</p>
+<p>When you run <code>reapp build</code> you'll notice a new <code>./build</code> folder where your assets have been copied to. We're working
+on adding more documentation soon on how to get those assets into a Cordova/Phonegap app.</p>
+<h3>Structure of your applications</h3>
+<p>You can see the exact app that's generated through the <a href="https://github.com/reapp/reapp-starter" target="_blank" rel="external">reapp-starter repo</a>.
+Only the <code>/app/app.js</code> entrypoint and <code>/assets/layout.html</code> is &quot;necessary&quot;.
+In the future, we could have a config file to make this completely custom.
+For now, it's very simple:</p>
+<pre><code>/app
+  /components
+  /theme
+  app.js
+  routes.js
+/assets
+  layout.html
+/config (optional)
+</code></pre>
+<p><code>/app/app.js</code> is your entry point. Everything in the app folder should be pretty
+self-explanatory. <code>/assets</code> contains static assets, with a <code>layout.html</code> that is used
+to serve your app within. In general, you should't have to touch the layout, even for
+adding styles.</p>
+<p>The <code>/theme</code> folder is <a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> specific. You can
+find docs for it in the repo, but it also should be pretty easy to understand.</p>
+<p>If you place a <code>build.webpack.js</code> or <code>run.webpack.js</code> in your <code>/config</code> dir, the reapp CLI
+will use these configs when you run <code>reapp build</code> or <code>reapp run</code>.
+To see some example configs, check out the files in the <code>./config</code> folder of the
+<a href="https://github.com/reapp/reapp-pack" target="_blank" rel="external">reapp-pack repo</a>.</p>
+<h3>Your First App</h3>
+<p>There are a number of pieces we've included in a reapp. Let's explore a few
+of them in order of when you'll encounter them in your codebase. Think of this
+as a tour of a reapp app, giving an introduction to packages as we encounter them.</p>
+<p>You can check out the <a href="https://github.com/reapp" target="_blank" rel="external">reapp project on Github</a> for more info.</p>
+<p>To start, you'll want to open <code>./package.json</code>. Notice we have the following packages:</p>
+<ul>
+<li><a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a> (Routes generator)</li>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</li>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp</a> (CLI)</li>
+<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a> (Base utils)</li>
+<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a> (DI and Factories)</li>
+</ul>
+<p>You also have an entry point defined as <code>app/app.js</code>. This starts your app.
+The most important part here is the routing. Lets start there.</p>
+<h4><a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a> (Routes generator)</h4>
+<p>reapp-routes is a DRY nested route-to-directory mapping system. As long as
+your routes map to your component file structure, you can save lots of time
+and enforce consistency in your app, a win-win.</p>
+<p>Notice how the import looks for <code>reapp-routes/react-router</code>.
+The first import in app.js is your router. We love react-router, so we included
+a reapp-routes generator for that by default, but you could write your own.</p>
+<p>You'll notice that the pre-defined routes all perfectly map to the structure of
+<code>./app/components</code>. To see more about how this works, check out reapp-routes.</p>
+<p>This is the reapp-routes syntax. The key to note here is the <code>require</code> that
+is passed to the routes function at the top level, which is how it dynamically
+requires your components based on the route tree.</p>
+<h4><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</h4>
+<p>The next theme we require is the <code>./app/theme.js</code> file. reapp-ui has it's own
+documentation, but themes are the core of reapp-ui. They have three things they
+need: constants, styles, and animations. You can just use the included iOS theme,
+but we've included the <code>./app/theme</code> folder as an example of how you can easily
+customize themes.</p>
+<h4>More reading</h4>
+<ul>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp</a> (CLI)</li>
+<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a> (Base utils)</li>
+<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a> (DI and Factories)</li>
+</ul>
+<h3>Custom builds</h3>
+<p>Reapp-pack takes in an object that lets you configure your builds. To read more on
+the options that takes, see the <a href="http://github.com/reapp/reapp-pack" target="_blank" rel="external">reapp-pack readme</a>.</p>
+<p>Reapp will automatically look for your build files, and you can override the defaults if
+you'd like. If you don't have a config folder, it will just use the defaults.</p>
+<p>The way it looks for config files:</p>
+<ul>
+<li>
+<p><code>reapp run</code> looks for:</p>
+<ul>
+<li><code>./config/run.config.js</code></li>
+<li><code>reapp-pack/config/run.js</code></li>
+</ul>
+</li>
+<li>
+<p><code>reapp build</code> looks for:</p>
+<ul>
+<li><code>./config/build.config.js</code></li>
+<li><code>reapp-pack/config/build.js</code></li>
+</ul>
+</li>
+<li>
+<p><code>reapp build [platform]</code> looks for:</p>
+<ul>
+<li><code>./config/build.[platform].config.js</code></li>
+<li><code>reapp-pack/config/build.[platform].js</code></li>
+</ul>
+</li>
+</ul>
+<h3>Why Reapp?</h3>
+<p>Reapp wasn't built purposefully to be a framework. Instead, it started
+as a UI kit. From that kit, two apps were built. While this isn't a lot,
+it was enough to see repetition between the two that could be extracted.</p>
+<p>From those two apps, over a period of months, we extracted a set of
+packages, ensuring to keep each of them completely independent. It was
+an experiment in seeing if a framework was necessary.</p>
+<p>What we found was this: if you can subscribe to a certain file structure,
+you can avoid the framework. With that file structure, we can provide
+helpers via a CLI. Bootstrap your app in one command and you have a mature
+build system built in, without having to do anything.</p>
+<p>Really, Reapp is simple. You could even just use the UI kit and roll your own
+app. We just went through that headache, and decided to make it easier to
+avoid it if you like how we make apps.</p>
+<h3>Roadmap</h3>
+<p>Our initial goals are simple: focus on completeness, consistency, and performance.
+Also, a theme for Android.</p>
+<p>Down the road we'd like to achieve the following:</p>
+<ul>
+<li><strong>Isomorphic</strong> - Render first on server, pass data over
+to client to continue from there (easily achievable).</li>
+<li><strong>Responsive</strong> - Support for tablet style interfaces
+and JS-powered responsive styling.</li>
+<li><strong>Physics</strong> - A spring based physics library
+into the animation library with an easy syntax.</li>
+<li><strong>Interaction</strong> - A simple, declarative interaction
+library that can be composed well with reapp</li>
+</ul>
+<h3>Development Environment</h3>
+<p>Sublime users, <a href="https://medium.com/@dan_abramov/lint-like-it-s-2015-6987d44c5b48" target="_blank" rel="external">here's a guide</a>
+for getting syntax highlighting, snippets and linting that works with babel.</p>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/nav.js"></script>
+    <footer class="footer section">
+    <div class="row">
+      <div class="hide-xs col-sm-2"></div>
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="/start.html">Docs</a>
+          <a href="/modules.html">Modules</a>
+        </nav>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="https://github.com/reapp/reapp" target="_blank">Github</a>
+          <a href="https://twitter.com/reapp" target="_blank">Twitter</a>
+        </nav>
+      </div>
+      <div class="hide-xs col-sm-2"></div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <span>Copyright 2015 reapp.</span>
+          <span>Icons from <a href="http://www.flaticon.com">flaticon.com</a> under CC 3.0</span>
+          <span>nate@reapp.io</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spiro"></div>
+  </footer>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57645827-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script src="/js/highlight.js" type="text/javascript"></script>
+  <script src="/js/highlight-js.js" type="text/javascript"></script>
+  <script src="/js/highlight-xml.js" type="text/javascript"></script>
+  <script>
+    hljs.registerLanguage('js', H_js);
+    hljs.registerLanguage('xml', H_xml);
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>
+</body>
+</html>
