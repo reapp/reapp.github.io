@@ -60,10 +60,10 @@ code,
 }
 pre code,
 .hljs {
-  margin: 1rem 0;
+  margin: 0 0 1em 0;
   padding: 16px;
   font-size: 15px;
-  line-height: 26px;
+  line-height: 23px;
 }
 p code,
 p .hljs {
@@ -462,7 +462,7 @@ h4 {
 }
 .emphasize {
   font-size: 110%;
-  line-height: 2.7rem;
+  line-height: 2.4rem;
 }
 .lighten,
 .lighten p {
@@ -572,7 +572,7 @@ h4 {
   filter: none;
   -webkit-filter: none;
 }
-.center-titles h4 {
+.center-titles {
   text-align: center;
 }
 .note {
