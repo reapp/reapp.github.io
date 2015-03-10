@@ -1593,6 +1593,9 @@ h4 {
 .page h1 {
   font-size: 32px;
 }
+.logo {
+  position: relative;
+}
 .home #github {
   display: none;
 }
@@ -1616,13 +1619,13 @@ h4 {
   .row.split {
     width: 50%;
   }
+  .row-features .row {
+    max-height: 15rem;
+  }
 }
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 62em) {
   .logo {
     margin: auto;
-  }
-  .home .nav {
-    margin: 15px auto;
   }
 }
 #hero-bg {
@@ -1652,7 +1655,6 @@ h4 {
   font-size: 2rem;
   line-height: 1.7em;
   margin: 0 0 1rem;
-  padding-right: 2rem;
   color: #fff;
 }
 .hero p span {
@@ -1724,6 +1726,7 @@ h4 {
 }
 .row-features .feature {
   flex-flow: row;
+  -webkit-flex-flow: row;
 }
 .feature {
   padding: 0.5rem 2rem;
@@ -1748,12 +1751,16 @@ h4 {
   color: #666;
 }
 .secondary {
-  width: 30%;
   flex-shrink: 0;
+  padding: 0 10px;
 }
 .secondary,
 .main {
   flex-flow: column;
+  -webkit-flex-flow: column;
+}
+.main {
+  padding: 0 10px;
 }
 .icon {
   width: 100px;
@@ -1763,6 +1770,7 @@ h4 {
   transition: all 300ms ease-in;
 }
 .icon.logo {
+  padding: 0;
   width: 120px;
   height: 100px;
 }
@@ -1864,9 +1872,6 @@ h4 {
 #what-is-it .feature a {
   padding: 0;
 }
-.logo {
-  transform: translate3d(-10px, 0, 0);
-}
 #mark {
   position: absolute;
   width: 30px;
@@ -1876,6 +1881,7 @@ h4 {
 .example {
   margin: -220px -125px -180px;
   transform: scale(0.5);
+  -webkit-transform: scale(0.5);
   width: 500px;
   height: 500px;
   position: absolute;
@@ -1898,7 +1904,6 @@ h4 {
   padding: 0;
 }
 .row-features .row {
-  max-height: 15rem;
   overflow: hidden;
   border-top: 1px solid #eee;
   padding: 0;
