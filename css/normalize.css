@@ -150,11 +150,11 @@ th.bold {
   font-weight: bold;
 }
 table .bold {
-  background: #fdf6e3;
+  background: #fbfbfb;
+  color: #000;
 }
 table td.category {
   text-align: right;
-  font-weight: bold;
 }
 table td.winner {
   color: #00c800;
