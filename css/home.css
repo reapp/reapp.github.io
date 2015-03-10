@@ -24,6 +24,9 @@
   .row.split {
     width: 50%;
   }
+  .row-features .row {
+    max-height: 15rem;
+  }
 }
 @media only screen and (max-width: 62em) {
   .logo {
@@ -153,12 +156,16 @@
   color: #666;
 }
 .secondary {
-  width: 30%;
+  flex-shrink: 0;
+  padding: 0 10px;
 }
 .secondary,
 .main {
   flex-flow: column;
   -webkit-flex-flow: column;
+}
+.main {
+  padding: 0 10px;
 }
 .icon {
   width: 100px;
@@ -302,7 +309,6 @@
   padding: 0;
 }
 .row-features .row {
-  max-height: 15rem;
   overflow: hidden;
   border-top: 1px solid #eee;
   padding: 0;
