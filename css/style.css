@@ -451,9 +451,10 @@ h4 {
   font-weight: normal;
   margin: 1rem 0;
 }
-.emphasize {
+.emphasize,
+.row-features p {
   font-size: 110%;
-  line-height: 2.4rem;
+  line-height: 2.3rem;
 }
 .lighten,
 .lighten p {
@@ -1599,7 +1600,7 @@ input {
 }
 .home .header {
   background: none;
-  margin: 0 0 2rem 0;
+  margin: 2rem 0 0 0;
   z-index: 10;
 }
 .home .header a {
@@ -1928,19 +1929,21 @@ input {
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1100px;
 }
 .row-features .row:first-child {
   border: none;
 }
 .banner {
+  padding: 2px 0;
   background: #035e1f;
   text-align: center;
   color: rgba(255,255,255,0.5);
-  font-size: 14px;
+  font-size: 15px;
 }
 .banner a {
   color: #fff;
+  font-weight: bold;
 }
 .blog h1 {
   margin: 0.5rem 0 2rem;
