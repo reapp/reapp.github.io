@@ -129,6 +129,9 @@
 .features {
   margin: 1rem auto 3rem;
 }
+.section.row-features {
+  padding-bottom: 0;
+}
 .row-features .feature {
   flex-flow: row;
   -webkit-flex-flow: row;
@@ -317,11 +320,6 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin: 0 3rem;
-}
-.row-features .row.lesser {
-  border: none;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 .row-features .row:first-child {
   border: none;

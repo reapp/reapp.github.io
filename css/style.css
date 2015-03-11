@@ -30,7 +30,7 @@ a {
 }
 p,
 ul {
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
 }
 a:hover {
   color: #9dd7f0;
@@ -1719,6 +1719,9 @@ h4 {
 .features {
   margin: 1rem auto 3rem;
 }
+.section.row-features {
+  padding-bottom: 0;
+}
 .row-features .feature {
   flex-flow: row;
   -webkit-flex-flow: row;
@@ -1907,11 +1910,6 @@ h4 {
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin: 0 3rem;
-}
-.row-features .row.lesser {
-  border: none;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 .row-features .row:first-child {
   border: none;
