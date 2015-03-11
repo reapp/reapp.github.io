@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="utf-8">
+
+  <title>Crossing the Uncanny Valley of Web Apps |  Reapp - Hybrid apps, fast</title>
+  <meta name="description" content="Hybrid apps are in a unique position today. Any developer paying
+attention to the drama surrounding them since the iPhone first came out
+with web-apps in 2007 (and native in 2008), as read a number of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crossing the Uncanny Valley of Web Apps">
+<meta property="og:url" content="http://reapp.io/2015/03/02/Crossing-the-Uncanny-Valley-of-Web-Apps/index.html">
+<meta property="og:site_name" content="Reapp">
+<meta property="og:description" content="Hybrid apps are in a unique position today. Any developer paying
+attention to the drama surrounding them since the iPhone first came out
+with web-apps in 2007 (and native in 2008), as read a number of">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Crossing the Uncanny Valley of Web Apps">
+<meta name="twitter:description" content="Hybrid apps are in a unique position today. Any developer paying
+attention to the drama surrounding them since the iPhone first came out
+with web-apps in 2007 (and native in 2008), as read a number of">
+
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="alternative" href="/atom.xml" title="Reapp" type="application/atom+xml">
+</head>
+<body>
+  <a id="github" class="show-md show-sm hide-xs" href="https://github.com/reapp/reapp" target="_blank">
+  Star on Github
+</a>
+
+<header class="header">
+  <div class="row center-xs start-md">
+    <h1 class="logo"><a href="/">Reapp</a></h1>
+
+    <nav class="nav">
+      <a  href="/start.html">Get Started</a>
+      <a  href="/modules.html">Documentation</a>
+      <a class="active" href="/blog">Blog</a>
+    </nav>
+
+    <nav class="nav right hide-xs">
+      <a href="https://twitter.com/reapp">@reapp</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page blog">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <article id="post-Crossing-the-Uncanny-Valley-of-Web-Apps" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/02/Crossing-the-Uncanny-Valley-of-Web-Apps/" class="article-date">
+  <time datetime="2015-03-03T05:02:22.000Z" itemprop="datePublished">Mar 2 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Crossing the Uncanny Valley of Web Apps
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hybrid apps are in a unique position today. Any developer paying
+attention to the drama surrounding them since the iPhone first came out
+with web-apps in 2007 (and native in 2008), as read a number of articles
+from</p>
+<p>Let's take a quick look</p>
+<h3>Web Workers and Transferrable Objects</h3>
+<p>Our first taste of threading in JS came from Web Workers. They gave us
+lightweight threads but with costs. Basically, you can't access the DOM.
+But another big downside of using them is that data you send between them
+is not shared, it's copied. On mobile, this can mean hundreds of millisecods of
+delay when dealing with passing non-trivial amounts of data.</p>
+<p>That's where Transferrable Objects come in handy. They are supported by all
+modern browsers and you can <a href="http://updates.html5rocks.com/2011/12/Transferable-Objects-Lightning-Fast" target="_blank" rel="external">read more on them in this post</a>.
+Basically, they let you pass data by reference (without having to copy it).</p>
+<h3>Better parallel JavaScript</h3>
+<p>Web Workers with their limitations don't quite get us all the way there.
+What we'd have ideally is some form of <a href="https://github.com/sebmarkbage/ecmascript-immutable-data-structures" target="_blank" rel="external">shared immutable structures</a>.</p>
+<p>That, along with another up and comined idea of <a href="">UI Workers</a> would finally
+get us to avoid the dreaded slowdowns you see when doing CPU-intensive work
+while trying to animate a user interface.</p>
+<h3>Apple needs to improve Safari and open iOS to 3rd party browsers</h3>
+<p>It's hard to argue that Safari hasn't fallen behind dramatically in the
+browser arena as of late. Slow to adopt features have made it a pain for
+implementing new technology.</p>
+<p>There are some huge bugs in the current WebViews in Safari like JavaScript painting
+being delayed during scrolls that prevents proper touch event handling, and
+touch inputs being offset completely.</p>
+<p>They've been accused of <a href="http://arstechnica.com/tech-policy/2011/12/is-apple-is-using-patents-to-hurt-open-standards/" target="_blank" rel="external">holding back web standards</a>.
+Flebox can bring the rendering engine to it's knees, contentEditable, Shadow DOM,
+WebRTC don't work properly. <a href="http://timkadlec.com/2015/02/apples-web/" target="_blank" rel="external">Pointer Events</a>
+is held up (more reading <a href="https://news.ycombinator.com/item?id=9106511" target="_blank" rel="external">here</a> and <a href="https://code.google.com/p/chromium/issues/detail?id=162757" target="_blank" rel="external">here</a>).
+Apple even removed support for the High Resolution Time API in 8.1.</p>
+<p>Then there's the issues with WebViews on iOS. After years of lagging behind
+with a limited non-JIT engine, Apple announced WKWebView's for iOS 8. Finally,
+a fast JIT for homescreen/hybrid apps! Only, they never really delivered.</p>
+<p>As they stand now there are showstopper bugs that have gone unfixed for three minor
+releases. Not only that, but in 8.3, developers are reporting even the speed gains
+we desperately needed with WKWebViews have now regressed!</p>
+<p>Finally, their developer tools are horribly slow. Debugging a JavaScript app
+brings Safari to it's knees, requiring restarts after every Timeline recording
+and poor support for Source Maps.</p>
+<p>But beyond the feature-set, this all stems from a bigger issue. Browsers need competition.
+We need to learn from the history. Competition is necessary, and we don't want another
+IE6 nightmare. Let's collectively start pushing apple Apple to open up their
+platform. I'm positive the Google and Mozilla teams would be happy to ship their
+own engines on iOS, and we'd all be better off for it.</p>
+<h3>Native API's should be a priority for browsers</h3>
+<p>I'll say something that may not be a very popular opinion: I think Cordova does
+an amazing job with their plugin platform. Installing is a breeze, and their goals
+of designing upstreamable API's often work very well. The problem is, actually getting
+them implemented.</p>
+<p>We can hope that ChomeOS (and FirefoxOS) will help in this regard.</p>
+<p>One good example is the lack of access for the iOS text selection interface.
+Want to react to user selections of text programatically? <a href="http://stackoverflow.com/questions/11300590/how-to-captured-selected-text-range-in-ios-after-text-selection-expansion" target="_blank" rel="external">Good luck</a>.</p>
+<h3>Gesture interaction needs some love</h3>
+<p>This ties into the ongoing Pointer Events controversy,
+but the mobile needs better ways of handling gestures and multi-touch interactions.
+This could even be as simple as better libraries meant for handling these sort of
+things. Things like <a href="http://interactjs.io/" target="_blank" rel="external">interact.js</a> and <a href="http://hammerjs.github.io/" target="_blank" rel="external">hammer.js</a>
+make attempts, and there are rumors that React Native is working on a JS solution
+for their own purposes that could be backported to the web.</p>
+<h3>All that to say...</h3>
+<p>This post may seem like a long rant at the big companies on how they're handling
+the web. In my mind, it's impossible to pin a motive on a lot of what they do,
+there are certainly people pushing in different directions even the small teams
+working on the web at each company.</p>
+<p>All this really is, is another attempt to bring more light to the current status.
+We all want the web to get better. We want it to be faster, more flexible, and
+to be full featured enough to write apps comfortably across all platforms.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!-- <a data-url="http://reapp.io/2015/03/02/Crossing-the-Uncanny-Valley-of-Web-Apps/" data-id="ci71cpdjh000d1rsvuvo6zrbc" class="article-share-link">Share</a> -->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+</nav>
+
+  
+</article>
+
+
+    </div>
+  </div>
+</div>
+    <footer class="footer section">
+    <div class="row">
+      <div class="hide-xs col-sm-2"></div>
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="/start.html">Docs</a>
+          <a href="/modules.html">Modules</a>
+        </nav>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="https://github.com/reapp/reapp" target="_blank">Github</a>
+          <a href="https://twitter.com/reapp" target="_blank">Twitter</a>
+        </nav>
+      </div>
+      <div class="hide-xs col-sm-2"></div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <span>Copyright 2015 reapp.</span>
+          <span>Icons from <a href="http://www.flaticon.com">flaticon.com</a> under CC 3.0</span>
+          <span>nate@reapp.io</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spiro"></div>
+  </footer>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57645827-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script src="/js/highlight.js" type="text/javascript"></script>
+  <script src="/js/highlight-js.js" type="text/javascript"></script>
+  <script src="/js/highlight-xml.js" type="text/javascript"></script>
+  <script>
+    hljs.registerLanguage('js', H_js);
+    hljs.registerLanguage('xml', H_xml);
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>
+</body>
+</html>

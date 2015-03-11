@@ -61,7 +61,7 @@ code,
 }
 pre code,
 .hljs {
-  margin: 0 0 1em 0;
+  margin: 0;
   padding: 16px;
   font-size: 15px;
   line-height: 23px;
@@ -177,8 +177,7 @@ table td.loser {
   color: #56be53;
 }
 .color-yellow,
-.nav a:hover,
-.nav a {
+.nav a:hover {
   color: #f8f062;
 }
 .color-orange {
@@ -200,10 +199,6 @@ table td.loser {
   position: relative;
   color: #fff;
   background-image: linear-gradient(-45deg, #02581d, #05bb3e);
-}
-body,
-input {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
 }
 h1 {
   font-size: 2.2rem;
@@ -613,8 +608,6 @@ h4 {
 .nav a {
   padding: 0 2.5rem 0 0;
   font-size: 1.1rem;
-}
-.nav a:hover {
   color: #fff;
 }
 .nav a.active,
@@ -1544,6 +1537,10 @@ h4 {
     display: none;
   }
 }
+body,
+input {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
 @font-face {
   font-family: 'Lato';
   font-weight: bold;
@@ -1587,6 +1584,11 @@ h4 {
 }
 .page h1 {
   font-size: 32px;
+}
+.article-entry p:first-child {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  margin-bottom: 2rem;
 }
 .logo {
   position: relative;
@@ -1658,17 +1660,18 @@ h4 {
   line-height: 1.2rem;
 }
 .install {
-  padding: 1.5rem 0;
-  margin: 0 0 2rem 0;
+  font-size: 22px;
+  padding: 1rem;
+  margin: 1rem auto 2rem 0;
   line-height: 2.2rem;
+  color: #a4f0a8;
 }
 .install .extra-line {
-  color: #fff;
   font-weight: normal;
   font-size: 18px;
   opacity: 0;
   transition: all 100ms ease-in;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 .hero-second,
 .hero-first {
@@ -1824,7 +1827,7 @@ h4 {
 }
 #github {
   display: block;
-  position: fixed;
+  position: absolute;
   top: 50px;
   right: -50px;
   z-index: 1000;
