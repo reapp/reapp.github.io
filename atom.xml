@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://reapp.io/"/>
-  <updated>2015-03-11T19:43:36.000Z</updated>
+  <updated>2015-03-11T19:45:02.000Z</updated>
   <id>http://reapp.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
@@ -14,9 +14,10 @@
     <link href="http://reapp.io/2015/03/11/Simplify-Flux-with-Immutable-js-and-Fynx/"/>
     <id>http://reapp.io/2015/03/11/Simplify-Flux-with-Immutable-js-and-Fynx/</id>
     <published>2015-03-11T19:05:28.000Z</published>
-    <updated>2015-03-11T19:43:36.000Z</updated>
-    <content type="html"><![CDATA[<p>It's not easy getting into Flux. The diagrams, upper case object keys, the mixins,
-and all the terminology. It's powerful, but for someone new to React it's a lot to take in.</p>
+    <updated>2015-03-11T19:45:02.000Z</updated>
+    <content type="html"><![CDATA[<p>It's not exactly easy getting into Flux. There's a lot of terminology, and a lot of power.
+Not to mention all the different implementations. It's useful, but for someone new to
+React it's a lot to take in.</p>
 <p>Which is fine. Flux is really meant to solve problems for &quot;big&quot; apps.
 When your UI is handling multiple events and transforming chunks of data.</p>
 <p>In this article we'll explain how we got to using Fynx, and then show some example
@@ -144,8 +145,8 @@ React.createClass({
 and check out <a href="https://github.com/reapp/hacker-news-app" target="_blank" rel="external">the code on GitHub</a>.</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>It's not easy getting into Flux. The diagrams, upper case object keys, the mixins,
-and all the terminology. It's powerful, but for someon]]>
+    <![CDATA[<p>It's not exactly easy getting into Flux. There's a lot of terminology, and a lot of power.
+Not to mention all the different implementatio]]>
     </summary>
     
   </entry>
