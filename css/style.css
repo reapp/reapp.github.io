@@ -151,7 +151,7 @@ th.bold {
   font-weight: bold;
 }
 table .bold {
-  background: #fbfbfb;
+  background: #fff;
   color: #000;
 }
 table td.category {
@@ -1897,7 +1897,7 @@ input {
 }
 .section:nth-child(2n+1) {
   position: relative;
-  background: #edf6fe;
+  background: #fcfcfc;
 }
 #ui-kit .feature {
   padding: 2rem;
