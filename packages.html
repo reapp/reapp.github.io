@@ -7,27 +7,27 @@
   <meta charset="utf-8">
 
   <title>packages |  Reapp - Hybrid apps, fast</title>
-  <meta name="description" content="reapp-ui
-This is an alpha release: seeking feedback, expect missing pieces, laughable mistakes, big changes
-reapp-ui is a set of React components for building app UI&apos;s. It has a few goals
-
-Allow pick-">
+  <meta name="description" content="reapp-routes
+A small library for generating a tree representing routes that also map to paths.
+This does two things: saves code and enforces consistency.
+Before reapp-routes
+var App = require(&apos;./compo">
 <meta property="og:type" content="website">
 <meta property="og:title" content="packages">
 <meta property="og:url" content="http://reapp.io/packages.html">
 <meta property="og:site_name" content="Reapp">
-<meta property="og:description" content="reapp-ui
-This is an alpha release: seeking feedback, expect missing pieces, laughable mistakes, big changes
-reapp-ui is a set of React components for building app UI&apos;s. It has a few goals
-
-Allow pick-">
+<meta property="og:description" content="reapp-routes
+A small library for generating a tree representing routes that also map to paths.
+This does two things: saves code and enforces consistency.
+Before reapp-routes
+var App = require(&apos;./compo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="packages">
-<meta name="twitter:description" content="reapp-ui
-This is an alpha release: seeking feedback, expect missing pieces, laughable mistakes, big changes
-reapp-ui is a set of React components for building app UI&apos;s. It has a few goals
-
-Allow pick-">
+<meta name="twitter:description" content="reapp-routes
+A small library for generating a tree representing routes that also map to paths.
+This does two things: saves code and enforces consistency.
+Before reapp-routes
+var App = require(&apos;./compo">
 
   <link rel="icon" href="/favicon.png" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
@@ -59,6 +59,7 @@ Allow pick-">
   <div class="row">
     <div class="col-xs-12">
       <nav>
+        <a  href="/ui.html">User Interface</a>
         <a class="active" href="/packages.html">Packages</a>
 
         <hr />
@@ -70,7 +71,6 @@ Allow pick-">
 
         <span class="core">
           <a  href="/docs-animations.html">Animations</a>
-          <a  href="/docs-styles.html">Styles</a>
           <a  href="/docs-themes.html">Themes</a>
           <a  href="/docs-viewlists.html">ViewLists</a>
         </span>
@@ -88,161 +88,7 @@ Allow pick-">
     <div class="col-xs-12 col-md-7 first-xs pad-right">
       
 
-      <h2>reapp-ui</h2>
-<p><em>This is an alpha release: seeking feedback, expect missing pieces, laughable mistakes, big changes</em></p>
-<p>reapp-ui is a set of React components for building app UI's. It has a few goals</p>
-<ul>
-<li>Allow pick-and-choose usage</li>
-<li>Work well together</li>
-<li>Lightweight code with few dependencies</li>
-<li>Themeable</li>
-<li>Adaptable to many platforms</li>
-</ul>
-<p>Near-term goals are to finish out the component set, finish the most
-accurate themes possible for iOS and Andorid, and nail down performance.
-<a href="http://reapp.io" target="_blank" rel="external">Visit our homepage</a> for an overview of features and a live demo.</p>
-<h3>Demo</h3>
-<p>You can add these demos to your homescreen or emulate mobile on your browser:</p>
-<ul>
-<li><a href="http://kitchen.reapp.io" target="_blank" rel="external">kitchen.reapp.io</a></li>
-<li><a href="http://hn.reapp.io" target="_blank" rel="external">hn.reapp.io</a></li>
-</ul>
-<h3>Structure</h3>
-<pre><code>  /assets
-    Icons, etc
-  /behaviors
-    (!) Used within components, can be passed in to override
-  /components
-    The UI components
-  /helpers
-    Components which don't map directly to user-viewable, helper components
-  /lib
-    Internally used functions
-  /mixins
-    All mixins (used internally and externally)
-  /stores
-    Internal: should be removable once parent-based contexts are in React
-  /themes
-    Theme files users can require
-</code></pre>
-<p><strong>index.js</strong></p>
-<p>Used to set up reapp-ui.</p>
-<p>reapp-ui uses three different things that must be imported at init. These
-things are imported so they can be mixed and matched for use with adapating
-theme or behavior.</p>
-<p>For now it has three relevant methods:</p>
-<ul>
-<li>
-<p><code>addConstants</code>: constants allow users to customize themes easily. They are used
-in styles (and in the future could be used with animations and more).
-<em><em>See /themes/ios/constants/</em> for examples.</em>*</p>
-</li>
-<li>
-<p><code>addStyles</code>: styles objects, keys map to the names of components and values are
-objects that are CSS styles in JS. Values can optionally be a function, that takes
-in the constants as the argument.
-<em><em>See /themes/ios/styles/</em> for examples.</em>*</p>
-</li>
-<li>
-<p><code>addAnimations</code>: animations are objects, keys are names, values are functions that
-take an object with <code>index</code>, <code>step</code> as keys, an optionally extra keys with more info.
-<strong>See /themes/ios/animations.js for examples.</strong></p>
-</li>
-</ul>
-<p>To see how you'd make a theme, I'd suggest looking at <code>/themes/ios/theme.js</code>. You
-can require that file to have the entire iOS theme setup for you automatically.</p>
-<p><strong>component.js</strong></p>
-<p>component is a decorator that is used internally by reapp-ui to make components. It
-was extracted out and is a nice set of mixins that allow the ui components to avoid
-reptitious code.</p>
-<p>This is an important file to look at before understanding how this library works,
-and from there, the Mixins that are used here make the foundation of the UI kit.</p>
-<h3>Contributing</h3>
-<p>Because Reapp has split itself into a number of modules, you'll probably need to do a little
-more work than usual to contribute. For the UI, the best setup is to do the following:</p>
-<ol>
-<li>Create a <code>reapp</code> folder</li>
-<li>Clone the <a href="https://github.com/reapp/kitchen-sink" target="_blank" rel="external">kitchen sink</a> repository</li>
-<li>Clone this repository</li>
-<li>Run <code>sudo npm link</code> inside this repository</li>
-<li><strong>Important:</strong> Run <code>npm remove react</code> in reapp-ui and be sure react isn't in node_modules</li>
-<li>Run <code>sudo npm link reapp-ui</code> inside the kitchen sink repository</li>
-</ol>
-<p>This will link your reapp-ui module into your kitchen sink repo. Now you can:</p>
-<ol start="7">
-<li>Run <code>reapp run -d</code> inside kitchen sink</li>
-<li>Go to <a href="http://localhost:3010" target="_blank" rel="external">localhost:3010</a></li>
-<li>Make edits inside reapp-ui and they will automatically compile into the kitchen sink.</li>
-</ol>
-<p><strong>Warning:</strong> When running locally you may run into some unique bugs. Because <code>npm link</code>
-runs an <code>npm install</code>, it will often install multiple versions of React into your
-modules folders, causing Webpack to bundle multiple versions of it into your app. This
-can cause a variety of errors. If you see stuff that warns about <code>Mount, Link, Context</code>,
-it is most likely because of this. Delete the react folder inside reapp-ui and any other
-sub-modules and re-run Webpack.</p>
-<h3>Principles</h3>
-<ul>
-<li>Aim for performance and consistency.</li>
-<li>Keep the repo structure as flat as possible.</li>
-<li>Decouple components. Allow selective usage of these components.</li>
-</ul>
-<h3>Credits</h3>
-<p>Original inspiration was thanks to <a href="https://github.com/petehunt" target="_blank" rel="external">Pete Hunt</a>'s <a href="http://petehunt.github.io/react-touch/" target="_blank" rel="external">React Mobile Demo</a>.
-The <a href="">Framework7</a> Kitchen Sink was used as reference when building the kitchen sink.</p>
-<p>SVG Icons included in this repo are originally from <a href="http://www.flaticon.com/packs/ios7-set-lined-1" target="_blank" rel="external">flaticon</a>
-and are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" rel="external">Creative Commons 3.0</a>. If you use them with your project, you must
-include attribution &quot;in any reasonable manner, but not in any way that suggests the licensor endorses you or your use&quot;.</p>
-<p>A big part of <a href="https://github.com/JedWatson/react-tappable" target="_blank" rel="external">react-tappable</a> was imported for use as a mixin, and will be sent
-back as a pull request soon!</p>
-<p>Help throughout was given in the #reactjs freenode channel, and from various great members
-of the react community including:</p>
-<ul>
-<li><a href="https://github.com/andreypopp" target="_blank" rel="external">Andrey Popp</a></li>
-<li><a href="https://github.com/rpflorence" target="_blank" rel="external">Ryan Florence</a></li>
-<li><a href="http://github.com/gaearon" target="_blank" rel="external">Dan Abramov</a></li>
-</ul>
-<p>and many more.</p>
-<h2>reapp-pack</h2>
-<p>A helper for generating webpack configs, along with some small helpers.
-Includes <code>./webpackServer</code> for easy use of webpack-dev-server.</p>
-<p>Based heavily on the official <a href="https://github.com/webpack/react-starter" target="_blank" rel="external">webpack/react-starter</a> repo.</p>
-<p>Webpack is just an export of the version of webpack used in this repository.</p>
-<h3>Usage</h3>
-<p>See required files in <code>./config</code>.</p>
-<pre><code class="js">var config = require('./config/webpack.run.js');
-var webpackServer = require('reapp-pack/webpackServer');
-
-webpackServer(config, {
-  port: 3011,
-  debug: true,
-  hot: true
-});
-</code></pre>
-<h3>Options</h3>
-<p>See <code>./index.js</code>.</p>
-<h2>reapp-server</h2>
-<p>reapp-server provides express and webpack servers that work together to serve
-a reapp app.</p>
-<p>reapp-server takes in options that it uses to build the webpack config. By default
-it runs in development mode and looks for a /config/config.development.js file to
-determine options. It includes default configs for development and production though.</p>
-<p>See <code>./webpack/config.*.js</code> for the default config files.</p>
-<p>See <code>./webpack/make.js</code> for how to builds the webpack config.</p>
-<h3>Options</h3>
-<pre><code>mode: corresponds to config files, typically 'development' or 'production'
-port: port to serve on, webpack server port by default is +1 of this
-wport: optional, to specify custom webpack server work
-staticPaths: array of strings, relative paths of where to serve static assets
-dir: dir of where to serve app
-debug: turn on debugging from webpack
-hostname: set hostname to serve from, default 'localhost'
-</code></pre>
-<h3>TODO</h3>
-<ul>
-<li>Work to be done getting isomorphic working again</li>
-<li>General organization, tests and code docs throughout</li>
-</ul>
-<h2>reapp-routes</h2>
+      <h2>reapp-routes</h2>
 <p>A small library for generating a tree representing routes that also map to paths.</p>
 <p>This does two things: saves code and enforces consistency.</p>
 <p><strong>Before reapp-routes</strong></p>
@@ -403,6 +249,46 @@ fetch(url).then(loadedReducer).then(store);
 <p>Injects <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="external">Object.assign</a>
 into your apps.</p>
 <p>Polyfill taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="external">MDN</a>.</p>
+<h2>reapp-pack</h2>
+<p>A helper for generating webpack configs, along with some small helpers.
+Includes <code>./webpackServer</code> for easy use of webpack-dev-server.</p>
+<p>Based heavily on the official <a href="https://github.com/webpack/react-starter" target="_blank" rel="external">webpack/react-starter</a> repo.</p>
+<p>Webpack is just an export of the version of webpack used in this repository.</p>
+<h3>Usage</h3>
+<p>See required files in <code>./config</code>.</p>
+<pre><code class="js">var config = require('./config/webpack.run.js');
+var webpackServer = require('reapp-pack/webpackServer');
+
+webpackServer(config, {
+  port: 3011,
+  debug: true,
+  hot: true
+});
+</code></pre>
+<h3>Options</h3>
+<p>See <code>./index.js</code>.</p>
+<h2>reapp-server</h2>
+<p>reapp-server provides express and webpack servers that work together to serve
+a reapp app.</p>
+<p>reapp-server takes in options that it uses to build the webpack config. By default
+it runs in development mode and looks for a /config/config.development.js file to
+determine options. It includes default configs for development and production though.</p>
+<p>See <code>./webpack/config.*.js</code> for the default config files.</p>
+<p>See <code>./webpack/make.js</code> for how to builds the webpack config.</p>
+<h3>Options</h3>
+<pre><code>mode: corresponds to config files, typically 'development' or 'production'
+port: port to serve on, webpack server port by default is +1 of this
+wport: optional, to specify custom webpack server work
+staticPaths: array of strings, relative paths of where to serve static assets
+dir: dir of where to serve app
+debug: turn on debugging from webpack
+hostname: set hostname to serve from, default 'localhost'
+</code></pre>
+<h3>TODO</h3>
+<ul>
+<li>Work to be done getting isomorphic working again</li>
+<li>General organization, tests and code docs throughout</li>
+</ul>
 
     </div>
   </div>
