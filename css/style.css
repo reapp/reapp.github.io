@@ -190,7 +190,7 @@ table td.loser {
 .header,
 .footer,
 #step-1 {
-  background-color: #217997;
+  background-color: #09b7b9;
 }
 #step-1 {
   border: none;
@@ -198,11 +198,19 @@ table td.loser {
   padding-bottom: 3rem;
   position: relative;
   color: #fff;
-  background-image: linear-gradient(20deg, #1cad5f 20%, #217997 60%, #2b3581 100%);
+  background-color: #09b7b9;
+  background-image: linear-gradient(-20deg, #11ad7f 20%, #09b7b9 60%, #1c51a4 100%);
+}
+.install {
+  font-size: 20px;
+  padding: 1rem;
+  margin: 1rem auto 2rem 0;
+  line-height: 2rem;
+  color: #a5fafb;
 }
 .banner {
   padding: 2px 0;
-  background: #1cad5f;
+  background: #11ad7f;
   text-align: center;
   color: rgba(255,255,255,0.5);
   font-size: 15px;
@@ -366,7 +374,7 @@ h2 span:hover {
   color: #fff;
 }
 .buttons a {
-  opacity: 0.5;
+  opacity: 0.8;
   font-size: 17px;
 }
 .buttons a:hover {
@@ -1629,10 +1637,15 @@ input {
   font-weight: normal;
   border-radius: 3px;
   margin: 0 5px 0 0;
+  border: 2px solid rgba(255,255,255,0.2);
+  transition: all 200ms ease-in;
+}
+.home .header a:hover {
+  border-color: #fff;
+  color: #fff;
 }
 .home .header a:first-child {
   font-weight: bold;
-  background: rgba(255,255,255,0.2);
 }
 .home .nav {
   margin: 15px 0;
@@ -1691,13 +1704,6 @@ input {
   font-size: 16px;
   color: #ff0;
   line-height: 1.2rem;
-}
-.install {
-  font-size: 20px;
-  padding: 1rem;
-  margin: 1rem auto 2rem 0;
-  line-height: 2.2rem;
-  color: #a4f0a8;
 }
 .install:hover .extra-line {
   opacity: 1;
