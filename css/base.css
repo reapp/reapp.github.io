@@ -27,7 +27,7 @@
   position: relative;
   color: #fff;
   background-color: #09b7b9;
-  background-image: linear-gradient(-20deg, #11ad7f 20%, #09b7b9 60%, #1c51a4 100%);
+  background-image: linear-gradient(-20deg, #09b7b9 30%, #1c51a4 100%);
 }
 .install {
   font-size: 20px;
@@ -38,7 +38,7 @@
 }
 .banner {
   padding: 2px 0;
-  background: #11ad7f;
+  background: #09b7b9;
   text-align: center;
   color: rgba(255,255,255,0.5);
   font-size: 15px;
