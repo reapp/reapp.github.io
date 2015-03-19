@@ -463,17 +463,6 @@ blockquote footer {
 code.emphasize {
   font-size: 16px;
 }
-.pad-right,
-.pad {
-  padding-right: 2rem;
-}
-.pad-left,
-.pad {
-  padding-left: 2rem;
-}
-.pad-top {
-  padding-top: 2rem;
-}
 h4 {
   font-size: 20px;
   font-weight: normal;
@@ -924,7 +913,19 @@ h4 {
     margin-bottom: 2rem;
   }
 }
+.pad {
+  padding: 2rem;
+}
 @media only screen and (min-width: 48em) {
+  .pad-right {
+    padding-right: 2rem;
+  }
+  .pad-left {
+    padding-left: 2rem;
+  }
+  .pad-top {
+    padding-top: 2rem;
+  }
   .col-sm,
   .col-sm-1,
   .col-sm-2,
@@ -1659,19 +1660,6 @@ input {
 .home .logo {
   display: none;
 }
-@media only screen and (min-width: 48em) {
-  .row.split {
-    width: 50%;
-  }
-  .row-features .row {
-    max-height: 15rem;
-  }
-}
-@media only screen and (max-width: 48em) {
-  .logo {
-    margin: auto;
-  }
-}
 #hero-bg {
   position: absolute;
   top: 0;
@@ -1811,9 +1799,6 @@ input {
 .main {
   padding: 0 10px;
 }
-.main.pad-right {
-  padding-right: 2rem;
-}
 .icon {
   width: 100px;
   height: 100px;
@@ -1857,21 +1842,6 @@ input {
 }
 .toggle button:focus {
   color: #fff;
-}
-@media only screen and (min-width: 48em) {
-  .intro {
-    padding-right: 6rem;
-  }
-  .hero-first {
-    padding-right: 3rem;
-  }
-}
-@media only screen and (max-width: 62em) {
-  .buttons,
-  #logo {
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 #github {
   display: block;
@@ -1956,13 +1926,42 @@ input {
 .row-features .row {
   overflow: hidden;
   padding: 0;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   margin: 0 auto;
   max-width: 1100px;
 }
 .row-features .row:first-child {
   border: none;
+}
+@media only screen and (min-width: 48em) {
+  .intro {
+    padding-right: 6rem;
+  }
+  .hero-first {
+    padding-right: 3rem;
+  }
+  .row.split {
+    width: 50%;
+  }
+  .row-features .row {
+    max-height: 15rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+@media only screen and (max-width: 75em) {
+  #step-1 {
+    padding: 0;
+  }
+  .logo {
+    margin: auto;
+    margin-top: 0;
+  }
+  .buttons {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .blog h1 {
   margin: 0.5rem 0 2rem;

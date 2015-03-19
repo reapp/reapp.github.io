@@ -291,17 +291,6 @@ blockquote footer {
 code.emphasize {
   font-size: 16px;
 }
-.pad-right,
-.pad {
-  padding-right: 2rem;
-}
-.pad-left,
-.pad {
-  padding-left: 2rem;
-}
-.pad-top {
-  padding-top: 2rem;
-}
 h4 {
   font-size: 20px;
   font-weight: normal;

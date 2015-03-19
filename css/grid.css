@@ -262,7 +262,19 @@
     margin-bottom: 2rem;
   }
 }
+.pad {
+  padding: 2rem;
+}
 @media only screen and (min-width: 48em) {
+  .pad-right {
+    padding-right: 2rem;
+  }
+  .pad-left {
+    padding-left: 2rem;
+  }
+  .pad-top {
+    padding-top: 2rem;
+  }
   .col-sm,
   .col-sm-1,
   .col-sm-2,
