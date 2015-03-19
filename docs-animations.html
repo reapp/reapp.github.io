@@ -9,22 +9,25 @@
   <title>animations |  Reapp - Hybrid apps, fast</title>
   <meta name="description" content="These docs are in progress!
 Animations
+Using Animations
 Animations in Reapp are powered by our Animated mixin. This mixin provides an API that allows you to easily animate React elements.
-Animations are defined in a s">
+Animations a">
 <meta property="og:type" content="website">
 <meta property="og:title" content="animations">
 <meta property="og:url" content="http://reapp.io/docs-animations.html">
 <meta property="og:site_name" content="Reapp">
 <meta property="og:description" content="These docs are in progress!
 Animations
+Using Animations
 Animations in Reapp are powered by our Animated mixin. This mixin provides an API that allows you to easily animate React elements.
-Animations are defined in a s">
+Animations a">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="animations">
 <meta name="twitter:description" content="These docs are in progress!
 Animations
+Using Animations
 Animations in Reapp are powered by our Animated mixin. This mixin provides an API that allows you to easily animate React elements.
-Animations are defined in a s">
+Animations a">
 
   <link rel="icon" href="/favicon.png" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
@@ -88,6 +91,7 @@ Animations are defined in a s">
 
       <p><em>These docs are in progress!</em></p>
 <h2>Animations</h2>
+<h3>Using Animations</h3>
 <p>Animations in Reapp are powered by our <a href="https://github.com/reapp/reapp-ui/blob/master/mixins/Animated.js" target="_blank" rel="external">Animated mixin</a>. This mixin provides an API that allows you to easily animate React elements.</p>
 <p>Animations are defined in a specific format. When you pass props to a component, you use <code>animations</code> as the key. The value is an object that describes the animations you want:</p>
 <pre><code>var animations = {
@@ -118,7 +122,38 @@ Animations are defined in a s">
 </code></pre>
 <p>The <code>ref</code> attribute is the same as the string we pass to componentProps, but it defaults to 'self', which we use for all top DOM nodes.</p>
 <p>Now, going back to how we defined our animation props we can see how they apply. The <code>&lt;div ref=&quot;self&quot;&gt;</code> gets 'fade' and 'moveLeft', while the <code>&lt;button ref=&quot;button&quot;&gt;</code> gets 'moveRight'.</p>
-<h2>API</h2>
+<h3>Animated Mixin</h3>
+<p>A simple mixin to run animations through context or within a component.</p>
+<h4>Core concepts</h4>
+<p>The Animated mixin uses the <code>this.context.theme.animations : object</code>
+to search for animations. Animations are function that take an object,
+like so: <code>{ index, state, ...extraProps }</code> and return an object with
+the following options:</p>
+<pre><code>  {
+    transform: { x: num, y: num, z: num },
+    rotate: num,
+    rotate3d: { x: num, y: num, z: num },
+    scale: num,
+    (opacity, or any other prop): any
+  }
+</code></pre>
+<p>Extra props can be passed down from a parent Animator by defining
+<code>this.animationContext (func : object) -&gt; object</code> on their class.
+The object returned by animationContext is merged into extraProps.</p>
+<p>Within an animated component you can get the current animation state
+with <code>this.getAnimationState() -&gt; object</code> or the current animation
+styles with <code>this.getAnimationStyle() -&gt; object</code>.</p>
+<h4>Context animations (Parent to Children)</h4>
+<p>In a parent component you define a &quot;step&quot; (props or state), which is
+the current position of the animation. Then on children, you define
+an &quot;index&quot; (property). This mixin then allows you to run
+<code>this.getAnimationStyle()</code> on the children, which will use the state
+set in the parents.</p>
+<p>Parents pass down context through <code>this.context.animations : object</code>.
+This object should contain a key (the name/source of the animation)
+to the value (an object with at least { step }).</p>
+<p>To ease setting this context, check out the Animator mixin.</p>
+<h3>Animated Mixin API</h3>
 <h3>getAnimationState(source : string) : object</h3>
 <p>Animation state consists always of two things: <code>index</code> and <code>step</code>.
 You can also add extra information to you animation state by defining
@@ -139,14 +174,12 @@ animationContext() {
 <p>The getAnimationState function will do a search through your component
 in the following order to find these properties:</p>
 <ol>
-<li>this.state.index, this.state.step</li>
-<li>this.props.index, this.props.step</li>
-<li>AnimateStore (Soon to be Context) - This will soon be replaced by contexts in React 0.13, but until then we've built a simple store that allows for passing the state down without having to pass props all the way.</li>
+<li>this.state (index or step)</li>
+<li>this.props (index or step)</li>
+<li>this.context (index or step)</li>
 </ol>
-<p>The return value is an object with at least index and step, and potentially extra information.</p>
-<h3>setAnimationState(source : string)</h3>
-<p>For components that want to animate down to deeply nested children, they can use this function. It will use <code>getAnimationState</code> to get the current state, and the place it into the AnimateStore for children to use when fetching.</p>
-<p>You can define a <code>source</code> of your animation. This is needed for children that want to get the animation state dynamically from different sources.</p>
+<p>The return value is an object with at least index and step, and potentially extra
+information as passed down through <code>this.animationContext</code>.</p>
 <h3>disableAnimation()</h3>
 <p>Call this to disable animations on the current component.</p>
 <h3>enableAnimation()</h3>
@@ -155,8 +188,6 @@ in the following order to find these properties:</p>
 <p>Returns if the animations are currently disabled.</p>
 <h3>isAnimating(source : string): bool</h3>
 <p>Check if an animation is running. This uses <code>getAnimationState</code> and then checks if the step isn't a whole number.</p>
-<h3>isAnimatingSafe(source : string) : bool</h3>
-<p>Similar to isAnimating, but will have a slight delay (returns true after animations are completed for a short time).</p>
 <h3>hasAnimations(ref : string) : bool</h3>
 <p>Checks if a given ref has animations set.</p>
 <h3>getAnimations(ref : string)</h3>
