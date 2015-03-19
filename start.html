@@ -177,29 +177,27 @@ as a tour of a reapp app, giving an introduction to packages as we encounter the
 </ul>
 <p>You also have an entry point defined as <code>app/app.js</code>. This starts your app.
 The most important part here is the routing. Lets start there.</p>
-<h4><a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a> (Routes generator)</h4>
-<p>reapp-routes is a DRY nested route-to-directory mapping system. As long as
-your routes map to your component file structure, you can save lots of time
-and enforce consistency in your app, a win-win.</p>
-<p>Notice how the import looks for <code>reapp-routes/react-router</code>.
-The first import in app.js is your router. We love react-router, so we included
-a reapp-routes generator for that by default, but you could write your own.</p>
+<h4>./app/routes (<a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a>)</h4>
+<p>We've rolled our own simple DSL for routes. It saves you a lot of time,
+essentially saving you from having to do bunch of typing as long as you
+keep your components structure consistent with the routes.</p>
+<p>We map these routes to <a href="https://github.com/rackt/react-router" target="_blank" rel="external">react-router</a> by default.</p>
 <p>You'll notice that the pre-defined routes all perfectly map to the structure of
 <code>./app/components</code>. To see more about how this works, check out reapp-routes.</p>
 <p>This is the reapp-routes syntax. The key to note here is the <code>require</code> that
 is passed to the routes function at the top level, which is how it dynamically
 requires your components based on the route tree.</p>
-<h4><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</h4>
-<p>The next theme we require is the <code>./app/theme.js</code> file. reapp-ui has it's own
-documentation, but themes are the core of reapp-ui. They have three things they
+<h4>./app/theme <a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</h4>
+<p>The next theme we require is the <code>./app/theme/theme.js</code> file. They have three things they
 need: constants, styles, and animations. You can just use the included iOS theme,
 but we've included the <code>./app/theme</code> folder as an example of how you can easily
 customize themes.</p>
+<p>For more documentation on themes, <a href="http://reapp.io/docs-themes.html" target="_blank" rel="external">read here</a>.</p>
 <h4>More reading</h4>
 <ul>
-<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp</a> (CLI)</li>
-<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a> (Base utils)</li>
-<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a> (DI and Factories)</li>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a></li>
+<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a></li>
+<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a></li>
 </ul>
 <h3>Custom builds</h3>
 <p>Reapp-pack takes in an object that lets you configure your builds. To read more on
