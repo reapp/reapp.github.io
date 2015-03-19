@@ -85,6 +85,9 @@
   position: relative;
   z-index: 3;
 }
+.hero-first {
+  padding: 1rem 2rem;
+}
 .screen {
   box-shadow: 0 0 80px rgba(0,0,0,0.2);
   margin: -20px 0 0 20px;
@@ -326,9 +329,13 @@
     padding-bottom: 3rem;
   }
 }
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 62em) {
   #step-1 {
-    padding: 0;
+    padding-top: 2rem;
+  }
+  .install {
+    margin-left: auto;
+    margin-right: auto;
   }
   .logo {
     margin: auto;
