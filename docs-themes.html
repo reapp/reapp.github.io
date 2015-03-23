@@ -9,25 +9,25 @@
   <title>themes |  Reapp - Hybrid apps, fast</title>
   <meta name="description" content="These docs are in progress!
 Themes
-Loading themes is easy with Reapp. We wanted a system that allowed complete
-flexibility by allowing users to modify any small piece of a theme, as well as swap
-entir">
+Themes are handles through contexts in the latest Reapp UI (0.11). While it&apos;s a small
+change in code to support, it&apos;s a huge enhancement in flexibility.
+A theme cons">
 <meta property="og:type" content="website">
 <meta property="og:title" content="themes">
 <meta property="og:url" content="http://reapp.io/docs-themes.html">
 <meta property="og:site_name" content="Reapp">
 <meta property="og:description" content="These docs are in progress!
 Themes
-Loading themes is easy with Reapp. We wanted a system that allowed complete
-flexibility by allowing users to modify any small piece of a theme, as well as swap
-entir">
+Themes are handles through contexts in the latest Reapp UI (0.11). While it&apos;s a small
+change in code to support, it&apos;s a huge enhancement in flexibility.
+A theme cons">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="themes">
 <meta name="twitter:description" content="These docs are in progress!
 Themes
-Loading themes is easy with Reapp. We wanted a system that allowed complete
-flexibility by allowing users to modify any small piece of a theme, as well as swap
-entir">
+Themes are handles through contexts in the latest Reapp UI (0.11). While it&apos;s a small
+change in code to support, it&apos;s a huge enhancement in flexibility.
+A theme cons">
 
   <link rel="icon" href="/favicon.png" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
@@ -91,15 +91,40 @@ entir">
 
       <p><em>These docs are in progress!</em></p>
 <h2>Themes</h2>
-<p>Loading themes is easy with Reapp. We wanted a system that allowed complete
-flexibility by allowing users to modify any small piece of a theme, as well as swap
-entire themes out. Finally, we needed to work with build systems so that you could
-load only the pieces you needed.</p>
-<p>Here's an example of manually loading the default iOS theme:</p>
-<pre><code class="js">var UI = require('reapp-ui');
-var iOS = require('reapp-ui/themes/ios');
+<p>Themes are handles through contexts in the latest Reapp UI (0.11). While it's a small
+change in code to support, it's a huge enhancement in flexibility.</p>
+<p>A theme consists of constants, styles and animations. It looks like this:</p>
+<pre><code>let theme = {
+  constants: {
+    borderWidth: 1
+  },
 
-require('reapp-ui/themes/ios/stylesheets');
+  styles: {
+    List: {
+      self: {
+        background: '#eee'
+      },
+    }
+  },
+
+  animations: {
+    fadeToLeft({ index, step }) {
+      return {
+        translate: { x: index - step },
+        opacity: index - step
+      }
+    }
+  }
+}
+</code></pre>
+<p>When you import reapp-ui, you are given a helper that lets you construct these objects
+more easily.</p>
+<p>Here's an example of manually loading the iOS theme:</p>
+<pre><code class="js">import UI from 'reapp-ui';
+import iOS from 'reapp-ui/themes/ios';
+
+// import base css styles
+import 'reapp-ui/themes/ios/stylesheets';
 
 UI.addConstants(
   iOS.constants.base,
@@ -113,26 +138,53 @@ UI.addStyles(
 UI.addAnimations(
   iOS.animations
 );
+
+export default UI.makeTheme();
 </code></pre>
-<p>As you can see, there are three things we add into a theme: constants, styles,
-and animations. In general, these object serve different purposes:</p>
+<p>One thing to note is that when using the reapp-ui helpers, your styles will have access
+to constants, if you export a function for each one. So you can use them like so:</p>
+<pre><code>UI.addConstants({ baseColor: '#fff' });
+UI.addStyles({
+  List: constants =&gt; ({
+    self: {
+      border: `1px solid ${constants.baseColor}`
+    }
+  })
+});
+</code></pre>
+<p>In general:</p>
 <ul>
-<li>Constants: Used in your Styles or in your app. No nested objects, just strings or numbers.</li>
-<li>Styles: One big object that maps Component =&gt; StylesObject =&gt; ref =&gt; styles.</li>
+<li>Constants: Used to store fundametal properties of your theme. Passed into Styles that are
+defined as functions.</li>
+<li>Styles: One big object that maps Component =&gt; ref =&gt; styles.</li>
 <li>Animations: Flat object with key =&gt; function, where functions return objects describing animations.</li>
 </ul>
-<p>Once you've loaded your theme you can do this to see your theme:</p>
-<pre><code>UI.getConstants(); // get an object of all constants
-UI.getConstants('key'); // get a single value
+<p>A final note, notice the <code>UI.makeTheme()</code>. This exports a plain JS object like the one we started
+out with. Since themes use context, lets learn how to load them into our app.</p>
+<h3>Loading a theme</h3>
+<p>Lets imagine we have our theme file that we
+just made using <code>UI.makeTheme</code> in a file names <code>mytheme.js</code>. Now, in our topmost component
+we load it like so:</p>
+<pre><code>import theme from './mytheme';
+import Theme from 'reapp-ui/helpers/Theme';
+import Button from 'reapp-ui/components/Button';
 
-UI.getStyles(); // get an object of all styles
-UI.getStyles('Component'); // get an object of all styles for one component
-
-UI.getAnimations(); //get an object of all animations
-UI.getAnimations('key'); // get a single animation
+export default React.createClass({
+  render() {
+    return (
+      &lt;Theme {...theme}&gt;
+        &lt;Button&gt;Hello world!&lt;/Button&gt;
+      &lt;/Theme&gt;
+    )
+  }
+})
 </code></pre>
-<p>Let's look at each in more detail.</p>
-<h3>Constants</h3>
+<p>The <code>Theme</code> helper is a simple component that sets the <code>this.context.theme</code> variable
+to be the theme object you created.</p>
+<p>We'll be expanding documentation on this as we go, but in the future the power of the
+themes in contexts will be that you can swap them out. That very same Button could
+change the <code>theme</code> variable to be an Android theme, and your entire app would change
+on the fly!</p>
 
     </div>
   </div>
