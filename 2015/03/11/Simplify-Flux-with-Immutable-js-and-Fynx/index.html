@@ -180,7 +180,7 @@ module.exports = React.createClass({
 </code></pre>
 <p>And our store will update, along with our UI. But, this isn't Flux. Lets say we add an action in our dogActions file that reverses our dog list. After we've added the action name in our actions.js we can do this:</p>
 <pre><code>Action.reverseDogs.listen(() =&gt;
-  store().update('dogs', dogs =&gt; dogs.reverse())
+  store().update('dogIds', dogs =&gt; dogs.reverse())
 );
 </code></pre>
 <p>And anywhere in our React tree we could then call:</p>
@@ -200,14 +200,17 @@ React.createClass({
 </code></pre>
 <p>In <a href="https://reapp.io" target="_blank" rel="external">Reapp</a>, I use <a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">a decorator</a> so I don't have to manually mix it in on every class.</p>
 <h3>In action</h3>
-<p>Want to see an app using this in production? Download it in the
+<p><strong>Update:</strong> Thanks to <a href="https://github.com/snickell" target="_blank" rel="external">snickell</a>, we have a
+<a href="https://github.com/reapp/reapp-dog-example" target="_blank" rel="external">working demo with this code here</a>.
+Check it out to see a simple example of this in action!</p>
+<p>Want to see an app using this Flux technique in production? Download it in the
 <a href="https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8" target="_blank" rel="external">iOS app store</a>
 and check out <a href="https://github.com/reapp/hacker-news-app" target="_blank" rel="external">the code on GitHub</a>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <!-- <a data-url="http://reapp.io/2015/03/11/Simplify-Flux-with-Immutable-js-and-Fynx/" data-id="ci754vs6g0000u7svb1plhj3j" class="article-share-link">Share</a> -->
+      <!-- <a data-url="http://reapp.io/2015/03/11/Simplify-Flux-with-Immutable-js-and-Fynx/" data-id="ci7m4hnb8000lmqsvol11kc7o" class="article-share-link">Share</a> -->
       
       
     </footer>
