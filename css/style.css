@@ -199,11 +199,12 @@ table td.loser {
 #step-1 {
   border: none;
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   position: relative;
   color: #fff;
   background-color: #09b7b9;
   background-image: linear-gradient(-20deg, #09b7b9 30%, #1c51a4 100%);
+  position: relative;
 }
 .install {
   font-size: 20px;
@@ -1718,7 +1719,7 @@ input {
 }
 .screen {
   box-shadow: 0 0 80px rgba(0,0,0,0.2);
-  margin: 0 0 0 20px;
+  margin: -10px 0 0 20px;
   overflow: hidden;
   background: #fff;
   height: 625px;
