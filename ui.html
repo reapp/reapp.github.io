@@ -105,12 +105,17 @@ for all platforms. It has a few goals:</p>
 <p>The most simple way of using reapp-ui is to load one of our themes, and
 then import the components you want to use. Here's an example of this;</p>
 <pre><code class="js">import iOSTheme from 'reapp-ui/themes/ios/theme'
+import Theme from 'reapp-ui/helpers/Theme';
 import Button from 'reapp-ui/components/Button';
 import React from 'react';
 
 export default React.createClass({
   render() {
-    return &lt;Button color=&quot;red&quot; /&gt;;
+    return (
+      &lt;Theme {...iOSTheme}&gt;
+        &lt;Button color=&quot;red&quot; /&gt;
+      &lt;/Theme&gt;
+    );
   }
 });
 </code></pre>
@@ -119,9 +124,7 @@ simple and easy to get started with. Reapp themes are very powerful though,
 and allow you to customize every piece of them.</p>
 <p>Lets see how they work. If you open the <code>reapp-ui/themes/ios/theme.js</code> file
 you'll see how we load the iOS theme:</p>
-<pre><code class="js">var UI = require('../../index');
-
-require('./stylesheets');
+<pre><code class="js">import UI from 'reapp-ui';
 
 UI.addConstants(
   require('./constants/base'),
@@ -130,12 +133,24 @@ UI.addConstants(
 
 UI.addAnimations(require('./animations'));
 UI.addStyles(require('./styles'));
+
+export default UI.makeTheme();
 </code></pre>
 <p>As you can see, we're basically loading three different pieces: constants,
 styles, and animations. We're also loading the stylesheets file, which
 includes our base.css styles that are used to normalize everything.</p>
 <p>You could easily override each of these steps by adding in new constants,
 styles, or animations, or overwriting the ones we use!</p>
+<h3>Using Reapp</h3>
+<p>The rest of the docs here describe the internals of reapp-ui. If you want to learn
+more on how Reapp works, check out:</p>
+<ul>
+<li><a href="http://reapp.io/components.html" target="_blank" rel="external">Components</a> &amp; <a href="http://reapp.io/views.html" target="_blank" rel="external">Views</a>: The building blocks of reapp-ui</li>
+<li><a href="http://reapp.io/packages.html" target="_blank" rel="external">Packages</a>: Information on the other packages that come with reapp</li>
+<li><a href="http://reapp.io/docs-animations.html" target="_blank" rel="external">Animations</a>: How to make custom animations</li>
+<li><a href="http://reapp.io/docs-themes.html" target="_blank" rel="external">Themes</a>: Themes in depth</li>
+<li><a href="http://reapp.io/docs-builds.html" target="_blank" rel="external">Building &amp; Cordova</a>: How to build your app for the web, ios, or any other platforms</li>
+</ul>
 <h3>Demos</h3>
 <p>You can add these demos to your homescreen or emulate mobile on your browser:</p>
 <ul>
