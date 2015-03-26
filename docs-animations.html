@@ -190,7 +190,7 @@ information as passed down through <code>this.animationContext</code>.</p>
 <p>Because we can either pass in our <code>animations</code> object through props, or define it in state, this is a helper function that checks both props and state for active animations.</p>
 <h3>getAnimationStyle(ref : string, source : string) : object</h3>
 <p>Given a ref and optionally a source, returns an object of styles at the current animation state.</p>
-<p>If no source is given, it will check the current components <code>this.animationSource</code> value.</p>
+<p>If no source is given, it will check the current components <code>this.props.animationSource</code> value.</p>
 <p>You can define transforms using our syntax, such that transforms will return a string that handles:</p>
 <ul>
 <li>scale</li>
