@@ -39,11 +39,7 @@ Easy to use what you w">
   <link rel="alternative" href="/atom.xml" title="Reapp" type="application/atom+xml">
 </head>
 <body>
-  <a id="github" class="show-md show-sm hide-xs" href="https://github.com/reapp/reapp" target="_blank">
-  Star on Github
-</a>
-
-<header class="header">
+  <header class="header">
   <div class="row center-xs start-md">
     <h1 class="logo"><a href="/">Reapp</a></h1>
 
@@ -54,7 +50,10 @@ Easy to use what you w">
     </nav>
 
     <nav class="nav right hide-xs">
-      <a href="https://twitter.com/reapp">@reapp</a>
+      <a href="https://twitter.com/reapp">Twitter</a>
+      <a href="https://github.com/reapp/reapp" target="_blank">
+        Github
+      </a>
     </nav>
   </div>
 </header>
@@ -216,11 +215,13 @@ more work than usual to contribute. For the UI, the best setup is to do the foll
 <li>Clone the <a href="https://github.com/reapp/kitchen-sink" target="_blank" rel="external">kitchen sink</a> repository</li>
 <li>Clone this repository</li>
 <li>Run <code>sudo npm link</code> inside this repository</li>
-<li><strong>Important:</strong> Run <code>npm remove react</code> in reapp-ui and be sure react isn't in node_modules</li>
+<li><strong>Important:</strong> Run <code>rm -r node_modules/react</code> in reapp-ui and be sure react isn't duplicated in Webpack build</li>
+<li>Run <code>npm watch</code> in this directory to start babel compiler</li>
+<li>Be sure to edit in <code>./src</code> directory only.</li>
 <li>Run <code>sudo npm link reapp-ui</code> inside the kitchen sink repository</li>
 </ol>
 <p>This will link your reapp-ui module into your kitchen sink repo. Now you can:</p>
-<ol start="7">
+<ol start="9">
 <li>Run <code>reapp run -d</code> inside kitchen sink</li>
 <li>Go to <a href="http://localhost:3010" target="_blank" rel="external">localhost:3010</a></li>
 <li>Make edits inside reapp-ui and they will automatically compile into the kitchen sink.</li>

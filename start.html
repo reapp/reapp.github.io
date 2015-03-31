@@ -34,11 +34,7 @@ a server and build sy">
   <link rel="alternative" href="/atom.xml" title="Reapp" type="application/atom+xml">
 </head>
 <body>
-  <a id="github" class="show-md show-sm hide-xs" href="https://github.com/reapp/reapp" target="_blank">
-  Star on Github
-</a>
-
-<header class="header">
+  <header class="header">
   <div class="row center-xs start-md">
     <h1 class="logo"><a href="/">Reapp</a></h1>
 
@@ -49,7 +45,10 @@ a server and build sy">
     </nav>
 
     <nav class="nav right hide-xs">
-      <a href="https://twitter.com/reapp">@reapp</a>
+      <a href="https://twitter.com/reapp">Twitter</a>
+      <a href="https://github.com/reapp/reapp" target="_blank">
+        Github
+      </a>
     </nav>
   </div>
 </header>
@@ -76,7 +75,7 @@ a server and build system.</p>
 <p>And finally in your app directory, run it on <a href="http://localhost:3010" target="_blank" rel="external">localhost:3010</a>:</p>
 <pre><code>reapp run
 </code></pre>
-<h3>CLI Options</h3>
+<h3>CLI</h3>
 <p>The CLI has two main functions that it helps you with. The first is creating new apps.
 For now, it simply makes a bare clone of a repo we keep updated with the current best-practice.
 The goal is eventually to have a variety of baseline repo's to choose from.</p>
@@ -199,34 +198,33 @@ customize themes.</p>
 <li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a></li>
 </ul>
 <h3>Custom builds</h3>
-<p>Reapp-pack takes in an object that lets you configure your builds. To read more on
-the options that takes, see the <a href="http://github.com/reapp/reapp-pack" target="_blank" rel="external">reapp-pack readme</a>.</p>
-<p>Reapp will automatically look for your build files, and you can override the defaults if
-you'd like. If you don't have a config folder, it will just use the defaults.</p>
-<p>The way it looks for config files:</p>
+<p>Reapp-pack takes in an object that lets you configure your builds. It provides you with
+<a href="https://github.com/reapp/reapp-pack/tree/master/config" target="_blank" rel="external">default config files</a>, but you
+can override them if you need custom Webpack loaders.</p>
+<p>The build system generates your Webpack config using <a href="https://github.com/reapp/reapp-pack" target="_blank" rel="external">reapp-pack</a>.</p>
 <ul>
-<li>
-<p><code>reapp run</code> looks for:</p>
-<ul>
-<li><code>./config/run.config.js</code></li>
-<li><code>reapp-pack/config/run.js</code></li>
+<li><code>reapp run</code> looks for: <code>./config/run.config.js</code></li>
+<li><code>reapp build</code> looks for: <code>./config/build.config.js</code></li>
+<li><code>reapp build [platform]</code> looks for: <code>./config/build.[platform].config.js</code></li>
 </ul>
-</li>
-<li>
-<p><code>reapp build</code> looks for:</p>
-<ul>
-<li><code>./config/build.config.js</code></li>
-<li><code>reapp-pack/config/build.js</code></li>
-</ul>
-</li>
-<li>
-<p><code>reapp build [platform]</code> looks for:</p>
-<ul>
-<li><code>./config/build.[platform].config.js</code></li>
-<li><code>reapp-pack/config/build.[platform].js</code></li>
-</ul>
-</li>
-</ul>
+<p>Place a config in your <code>./config/[run/build].[platform].config.js</code> to override the default.</p>
+<p>Here's an example config:</p>
+<pre><code class="js">module.exports = {
+  entry: './app/app.js',
+  devtool: 'none',
+  target: 'web',
+  env: 'production',
+  linkModules: true,
+  debug: true,
+  separateStylesheet: true,
+  minify: true
+};
+</code></pre>
+<p>You can also provide the following options that are passed to Webpack:</p>
+<pre><code>  loaders: array
+  modulesDirectories: array
+  prefetch: array
+</code></pre>
 <h3>Why Reapp?</h3>
 <p>Reapp wasn't built purposefully to be a framework. Instead, it started
 as a UI kit. From that kit, two apps were built. While this isn't a lot,
@@ -246,20 +244,6 @@ avoid it if you like how we make apps.</p>
 <ul>
 <li><a href="https://github.com/reapp/kitchen-sink" target="_blank" rel="external">Kitchen Sink</a> (<a href="http://kitchen.reapp.io" target="_blank" rel="external">demo</a>)</li>
 <li><a href="https://github.com/reapp/hacker-news-app" target="_blank" rel="external">Hacker News Reader</a> (<a href="http://hn.reapp.io" target="_blank" rel="external">demo</a>)</li>
-</ul>
-<h3>Roadmap</h3>
-<p>Our initial goals are simple: focus on completeness, consistency, and performance.
-Also, a theme for Android.</p>
-<p>Down the road we'd like to achieve the following:</p>
-<ul>
-<li><strong>Isomorphic</strong> - Render first on server, pass data over
-to client to continue from there (easily achievable).</li>
-<li><strong>Responsive</strong> - Support for tablet style interfaces
-and JS-powered responsive styling.</li>
-<li><strong>Physics</strong> - A spring based physics library
-into the animation library with an easy syntax.</li>
-<li><strong>Interaction</strong> - A simple, declarative interaction
-library that can be composed well with reapp</li>
 </ul>
 <h3>Development Environment</h3>
 <p>Sublime users, <a href="https://medium.com/@dan_abramov/lint-like-it-s-2015-6987d44c5b48" target="_blank" rel="external">here's a guide</a>
