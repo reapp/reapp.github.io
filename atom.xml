@@ -4,55 +4,10 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://reapp.io/"/>
-  <updated>2015-03-31T18:19:37.000Z</updated>
+  <updated>2015-03-23T17:03:27.000Z</updated>
   <id>http://reapp.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[Announcing reapp-kit: Lowering the barrier to being productive in React]]></title>
-    <link href="http://reapp.io/2015/03/31/Announcing-reapp-kit-The-easiest-way-to-get-started-with-React/"/>
-    <id>http://reapp.io/2015/03/31/Announcing-reapp-kit-The-easiest-way-to-get-started-with-React/</id>
-    <published>2015-03-31T19:05:28.000Z</published>
-    <updated>2015-03-31T18:19:37.000Z</updated>
-    <content type="html"><![CDATA[<p>Reapp launched just over a month ago and we've been overwhelmed by the response.
-We've gotten <a href="https://github.com/reapp/reapp" target="_blank" rel="external">thousands of stars on Github</a>, pushed <a href="">hundreds
-of updates</a> across all our modules. We published <a href="https://scotch.io/tutorials/make-a-mobile-app-with-reactjs-in-30-minutes" target="_blank" rel="external">a getting started tutorial on Scotch.io</a>.
-We added new components, a more accurate <a href="http://reapp.io/" target="_blank" rel="external">iOS theme</a>, support for React 0.13
-(and <a href="http://reapp.io/docs-themes.html" target="_blank" rel="external">context-based themes</a>), a <a href="https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8" target="_blank" rel="external">Hacker News app</a>,
-and most improtantly, a whole bunch of <a href="http://reapp.io/ui.html" target="_blank" rel="external">documentation</a>.</p>
-<p>All this to say, we're moving fast. Reapp is still a work in progress, but
-we want to keep things moving fast. So today, we're releasing reapp-kit in beta.</p>
-<h3>What is reapp-kit?</h3>
-<p>Reapp-kit unifies all the reapp components to make building apps way, way simpler.
-It brings chooses a few things for you, but mostly it brings together the reapp packages.</p>
-<p>Included in reapp-kit:</p>
-<ul>
-<li>All of reapp-ui</li>
-<li>Routes via react-router</li>
-<li>fetch() polyfill</li>
-<li>Immutable data for your components</li>
-<li>Fynx for a simple store and actions</li>
-<li>Patched React.Component with Immutable optimizations and Reapp Animation support</li>
-<li>Cordova helpers</li>
-</ul>
-<p>Note: For now, these are all bundled as one. In the future we plan to add
-support for customizing which of these pieces you'd like, while still getting all the
-other reapp-kit optimizations.</p>
-<h3>Why</h3>
-<p>When building reapp, one of the biggest goals was to keep things cleanly separated.
-React is still young, and no &quot;best&quot; practices have won out yet. In 2015, people
-want to move fast, but they all have different requirements.</p>
-<p>Originally, we solved this by gluing our <a href="http://github.com/reapp" target="_blank" rel="external">8 different user-facing packages</a>
-with our CLI scaffolding. It greatly simplified startup, but building the app still
-took too much work to put it all together.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Reapp launched just over a month ago and we've been overwhelmed by the response.
-We've gotten <a href="https://github.com/reapp/reapp" ta]]>
-    </summary>
-    
-  </entry>
   
   <entry>
     <title><![CDATA[Simplify Flux with Immutable.js and Fynx]]></title>
