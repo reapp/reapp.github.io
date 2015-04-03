@@ -141,7 +141,6 @@ For now, it's very simple:</p>
   /components
   /theme
   app.js
-  routes.js
 /assets
   /web
     index.html
@@ -165,32 +164,37 @@ To see some example configs, check out the files in the <code>./config</code> fo
 of them in order of when you'll encounter them in your codebase. Think of this
 as a tour of a reapp app, giving an introduction to packages as we encounter them.</p>
 <p>You can check out the <a href="https://github.com/reapp" target="_blank" rel="external">reapp project on Github</a> for more info.</p>
-<p>To start, you'll want to open <code>./package.json</code>. Notice we have the following packages:</p>
-<ul>
-<li><a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a> (Routes generator)</li>
-<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</li>
-<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp</a> (CLI)</li>
-<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a> (Base utils)</li>
-<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a> (DI and Factories)</li>
-</ul>
 <p>You also have an entry point defined as <code>app/app.js</code>. This starts your app.
 The most important part here is the routing. Lets start there.</p>
-<h4>./app/routes (<a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a>)</h4>
-<p>We've rolled our own simple DSL for routes. It saves you a lot of time,
-essentially saving you from having to do bunch of typing as long as you
-keep your components structure consistent with the routes.</p>
-<p>We map these routes to <a href="https://github.com/rackt/react-router" target="_blank" rel="external">react-router</a> by default.</p>
-<p>You'll notice that the pre-defined routes all perfectly map to the structure of
-<code>./app/components</code>. To see more about how this works, check out reapp-routes.</p>
+<h4>./app/app.js</h4>
+<p>Load all your stuff. From theme to store to actions. Then, you run your routes,
+which are done using reapp-routes. This simplifies routing down to the bare minimum.
+Note that your routes will automatically look into <code>./components</code> to find files,
+based on the name you give them.</p>
+<p>An example:</p>
+<pre><code class="js">routes(require,
+  route('home', route('sub')))
+
+  // ./components/Home.jsx
+  // ./components/home/Sub.jsx
+</code></pre>
 <p>This is the reapp-routes syntax. The key to note here is the <code>require</code> that
 is passed to the routes function at the top level, which is how it dynamically
 requires your components based on the route tree.</p>
-<h4>./app/theme <a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</h4>
-<p>The next theme we require is the <code>./app/theme/theme.js</code> file. They have three things they
-need: constants, styles, and animations. You can just use the included iOS theme,
-but we've included the <code>./app/theme</code> folder as an example of how you can easily
-customize themes.</p>
+<h4>./app/theme (<a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> UI Kit)</h4>
+<p>The next theme we require is the <code>./app/theme/index.js</code>. Themes are loaded by calling
+<code>Reapp.theme()</code> and passing in an object with styles, constants and animations.
+You can just use the included iOS theme, but we've included the <code>./app/theme</code> folder
+as an example of how you can easily customize themes.</p>
 <p>For more documentation on themes, <a href="http://reapp.io/docs-themes.html" target="_blank" rel="external">read here</a>.</p>
+<h4>./app/components/Home.jsx</h4>
+<p>This is the first React component in your structure, as defined in your routes.
+Notice when we export it, we wrap it with <code>Reapp</code>. This helper function will provide
+the <code>this.context</code> variables that you've set up when you loaded your theme, actions,
+and store (if you decide to use all of those). It will also pass props to your Home route,
+<code>this.props.child</code> and <code>this.props.viewListProps</code>. You can see that they correspond
+to any children routes, and to properties needed to be on a <code>&lt;ViewList&gt;</code> that will handle
+those routes.</p>
 <h4>More reading</h4>
 <ul>
 <li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a></li>
@@ -248,6 +252,15 @@ avoid it if you like how we make apps.</p>
 <h3>Development Environment</h3>
 <p>Sublime users, <a href="https://medium.com/@dan_abramov/lint-like-it-s-2015-6987d44c5b48" target="_blank" rel="external">here's a guide</a>
 for getting syntax highlighting, snippets and linting that works with babel.</p>
+<h3>Other reapp packages</h3>
+<ul>
+<li><a href="https://github.com/reapp/reapp-kit" target="_blank" rel="external">reapp-kit</a> (Combines Reapp packages together)</li>
+<li><a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a> (Routes generator)</li>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</li>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp</a> (CLI)</li>
+<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a> (Base utils)</li>
+<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a> (DI and Factories)</li>
+</ul>
 
     </div>
   </div>
