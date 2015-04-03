@@ -134,9 +134,7 @@ and it won't be copied at all, but you can still <code>require()</code> it withi
 and it'll output for all your builds.</p>
 <p><a href="#custom-builds">See more on custom builds</a>.</p>
 <h3>Structure of your applications</h3>
-<p>You can see the exact app that's generated through the <a href="https://github.com/reapp/reapp-starter" target="_blank" rel="external">reapp-starter repo</a>.
-Only the <code>/app/app.js</code> entrypoint and <code>/assets/web/index.html</code> is &quot;necessary&quot;.
-For now, it's very simple:</p>
+<p>You can see the exact app that's generated through the <a href="https://github.com/reapp/reapp-starter" target="_blank" rel="external">reapp-starter repo</a>.</p>
 <pre><code>/app
   /components
   /theme
@@ -149,7 +147,7 @@ For now, it's very simple:</p>
   /shared
 /config (optional)
 </code></pre>
-<p><code>/app/app.js</code> is your entry point. Everything in the app folder should be pretty
+<p>By default <code>/app/app.js</code> is your entry point. Everything in the app folder should be pretty
 self-explanatory. <code>/assets</code> contains static assets as explained in the <a href="#running-and-building">Running &amp; Building</a>
 section. In general, you'll place your assets into <code>shared</code> or the specific platform
 subdirectory.</p>
