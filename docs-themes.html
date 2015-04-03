@@ -116,9 +116,24 @@ change in code to support, it's a huge enhancement in flexibility.</p>
   }
 }
 </code></pre>
+<p>If you're using reapp-kit, loading a custom theme that extends the iOS one
+is as easy as:</p>
+<pre><code class="js">import { theme } from 'reapp-kit';
+import iOS from 'reapp-kit/themes/ios';
+
+theme({
+  constants:  [
+    iOS.constants.base,
+    iOS.constants.components,
+    require('./constants/components')
+  ],
+  styles: [ iOS.styles, require('./styles') ],
+  animations: [ iOS.animations ]
+});
+</code></pre>
 <p>When you import reapp-ui, you are given a helper that lets you construct these objects
 more easily.</p>
-<p>Here's an example of manually loading the iOS theme:</p>
+<p>Here's an example of manually loading the iOS theme with reapp-ui:</p>
 <pre><code class="js">import UI from 'reapp-ui';
 import iOS from 'reapp-ui/themes/ios';
 
@@ -161,9 +176,21 @@ defined as functions.</li>
 <p>A final note, notice the <code>UI.makeTheme()</code>. This exports a plain JS object like the one we started
 out with. Since themes use context, lets learn how to load them into our app.</p>
 <h3>Loading a theme</h3>
-<p>Lets imagine we have our theme file that we
-just made using <code>UI.makeTheme</code> in a file names <code>mytheme.js</code>. Now, in our topmost component
-we load it like so:</p>
+<p>With reapp-kit, you already have your theme loaded. When you build you top-level component,
+you just need to wrap it like so:</p>
+<pre><code class="js">import { React, Reapp } from 'reapp-kit'
+
+class MyComponent extends React.Component {
+  render() {
+    // your stuff
+  }
+}
+
+export default Reapp(MyComponent);
+</code></pre>
+<p>Reapp-kit will take care of loading the theme into context.</p>
+<p>Without the kit, you can load a theme using our <code>Theme</code> helper. After you've made your theme
+using <code>UI.makeTheme</code> from above, you could load it like so:</p>
 <pre><code>import theme from './mytheme';
 import Theme from 'reapp-ui/helpers/Theme';
 import Button from 'reapp-ui/components/Button';
