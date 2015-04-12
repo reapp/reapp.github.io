@@ -11,12 +11,8 @@ h2,
 h3,
 h4,
 h5 {
-  line-height: 1.2em;
+  line-height: 1.5em;
   margin: 2rem 0 1rem;
-}
-h2 {
-  font-size: 2rem;
-  margin: 1rem 0;
 }
 :focus {
   outline-color: transparent;
@@ -240,8 +236,8 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-size: 20px;
-  line-height: 2rem;
+  font-size: 22px;
+  line-height: 2.4rem;
   font-weight: normal;
   color: #555;
   overflow-x: hidden;
@@ -1608,22 +1604,14 @@ input {
 .page code {
   color: #555;
 }
-.page p,
-.page ul {
-  font-size: 1.2rem;
-  line-height: 2rem;
-}
 .page em {
   color: #777;
 }
 .page.blog {
   padding-top: 3rem;
 }
-.page h1 {
-  font-size: 32px;
-}
 .article-entry p:first-child {
-  font-size: 1.4rem;
+  font-size: 24px;
   line-height: 2.4rem;
   margin-bottom: 2rem;
 }
@@ -1797,6 +1785,7 @@ input {
 }
 .secondary {
   flex-shrink: 0;
+  -webkit-flex-shrink: 0;
   padding: 0 10px;
 }
 .secondary,
