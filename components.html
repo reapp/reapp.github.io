@@ -7,42 +7,42 @@
   <meta charset="utf-8">
 
   <title>components |  Reapp - Hybrid apps, fast</title>
-  <meta name="description" content="Badge
-A badge is used on lists or over icons and bars, for notifications
-of numbers usually.
-Props:
+  <meta name="description" content="Alert
+Show an alert banner at the top of the View.
 propTypes: {
   children: React.PropTypes.node
 }
 
-Bar
-Bars attach to an edge of the screen, as given">
+Badge
+A badge is used on lists or over icons and bars, for notifications
+of numbers usually.
+propTyp">
 <meta property="og:type" content="website">
 <meta property="og:title" content="components">
 <meta property="og:url" content="http://reapp.io/components.html">
 <meta property="og:site_name" content="Reapp">
-<meta property="og:description" content="Badge
-A badge is used on lists or over icons and bars, for notifications
-of numbers usually.
-Props:
+<meta property="og:description" content="Alert
+Show an alert banner at the top of the View.
 propTypes: {
   children: React.PropTypes.node
 }
 
-Bar
-Bars attach to an edge of the screen, as given">
+Badge
+A badge is used on lists or over icons and bars, for notifications
+of numbers usually.
+propTyp">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="components">
-<meta name="twitter:description" content="Badge
-A badge is used on lists or over icons and bars, for notifications
-of numbers usually.
-Props:
+<meta name="twitter:description" content="Alert
+Show an alert banner at the top of the View.
 propTypes: {
   children: React.PropTypes.node
 }
 
-Bar
-Bars attach to an edge of the screen, as given">
+Badge
+A badge is used on lists or over icons and bars, for notifications
+of numbers usually.
+propTyp">
 
   <link rel="icon" href="/favicon.png" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
@@ -103,10 +103,15 @@ Bars attach to an edge of the screen, as given">
     <div class="col-xs-12 col-md-7 first-xs pad-right">
       
 
-      <h3>Badge</h3>
+      <h3>Alert</h3>
+<p>Show an alert banner at the top of the View.</p>
+<pre><code>propTypes: {
+  children: React.PropTypes.node
+}
+</code></pre>
+<h3>Badge</h3>
 <p>A badge is used on lists or over icons and bars, for notifications
 of numbers usually.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
   children: React.PropTypes.node
 }
@@ -117,16 +122,25 @@ Bars contain icons and text, usually as a header and navigation.
 See TitleBar for a specific usage of a bar designed for View titles.</p>
 <p>A bar will automatically wrap it's children with BarItem, but you can
 manually use BarItem if you'd like to customize them.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
+  // one of text, icon, icon-text, icon-text-right
+  display: React.PropTypes.string,
+
+  // props to pass to each BarItem child
   barItemProps: React.PropTypes.object,
+
+  // attach to which side of screen
   position: React.PropTypes.string,
-  activeIndexIndex: React.PropTypes.number,
-  nowrap: React.PropTypes.bool
-}
+
+  // which BarItem to pass active prop
+  activeIndex: React.PropTypes.number,
+
+  // automatically wrap children with BarItem
+  wrap: React.PropTypes.bool
+},
 </code></pre>
 <h3>BarItem</h3>
-<p>Item on a Bar.</p>
+<p>An item in the Bar. Can be accessed as Bar.Item</p>
 <ul>
 <li><code>children</code> used for text</li>
 <li><code>icon</code> string or element</li>
@@ -139,14 +153,13 @@ manually use BarItem if you'd like to customize them.</p>
 </ul>
 </li>
 </ul>
-<p>Props:</p>
 <pre><code>propTypes: {
   icon: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.element
   ]),
   iconProps: React.PropTypes.object,
-  children: React.PropTypes.string,
+  children: React.PropTypes.node,
   display: React.PropTypes.oneOf([
     'text', 'icon', 'icon-text', 'icon-text-right'
   ]),
@@ -154,69 +167,112 @@ manually use BarItem if you'd like to customize them.</p>
 }
 </code></pre>
 <h3>Button</h3>
-<p>Buttons are buttons! Can be placed in a ButtonGroup.</p>
-<p>Props:</p>
+<p>Buttons are buttons! Can be placed in a ButtonGroup.
+Use onTap to add tap events.</p>
 <pre><code>propTypes: {
+  // pass properties to Icon
   iconProps: React.PropTypes.object,
+
+  // SVG icon
   icon: React.PropTypes.element,
+
+  // no visual chrome added
   chromeless: React.PropTypes.bool,
+
+  // Extend to fit screen when inside View
+  fullscreen: React.PropTypes.bool,
+
+  // Fully rounded corners
   rounded: React.PropTypes.bool,
-  active: React.PropTypes.bool
+
+  // Filled type button (no borders)
+  filled: React.PropTypes.bool,
+
+  // Color of button
+  color: React.PropTypes.string,
+
+  // Text color
+  textColor: React.PropTypes.string,
+
+  // Disabled look / no tap
+  inactive: React.PropTypes.bool,
+
+  // Props used for special display
+  isInTitleBar: React.PropTypes.bool,
+  isInViewList: React.PropTypes.bool,
 }
 </code></pre>
 <h3>ButtonGroup</h3>
+<p>Also accessible as Button.Group</p>
 <p>A button group manages a list of buttons. Places them together.
 It can pass properties down to the children buttons as well to avoid
 code duplication.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
   children: React.PropTypes.node,
   buttonProps: React.PropTypes.object
 }
 </code></pre>
 <h3>Card</h3>
-<p><strong>In Progress</strong></p>
-<p>Unfinished, will be used for both regular and tinder-style swipe cards.</p>
-<p>Props:</p>
+<p>Simple Card element.</p>
 <pre><code>propTypes: {
   title: React.PropTypes.string,
   children: React.PropTypes.node
 }
 </code></pre>
 <h3>Chat</h3>
-<p><strong>In Progress</strong></p>
 <p>Contains a list of ChatItems for use in messaging interfaces.</p>
-<p>Props</p>
 <pre><code>propTypes: {
+  // pass props to ChatItem
   itemProps: React.PropTypes.object,
+
+  // auto wrap children with ChatItem
   wrap: React.PropTypes.bool
-}
+},
 </code></pre>
 <h3>ChatItem</h3>
-<p><strong>In Progress</strong></p>
-<p>A chat item for use in messaging interfaces.</p>
-<p>Props:</p>
+<p>Also accessible as Chat.Item.  A chat bubble for use in messaging interfaces.</p>
 <pre><code>propTypes: {
+  // Text name for chat bubble
   name: React.PropTypes.string,
-  date: React.PropTypes.object,
-  avatar: React.PropTypes.node,
-  own: React.PropTypes.bool
+
+  // Date on chat bubble
+  date: React.PropTypes.string,
+
+  // Image for chat bubble
+  image: React.PropTypes.node,
+
+  // Belongs to user (shown on right side)
+  own: React.PropTypes.bool,
+
+  // No decoration on chat bubble
+  plain: React.PropTypes.bool
 }
 </code></pre>
 <h3>Checkbox</h3>
 <p>Checkbox is used in forms, passes it's props on to an <code>&lt;input type=&quot;checkbox&quot; /&gt;</code>.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
   onChange: React.PropTypes.func,
   checked: React.PropTypes.bool
 }
 </code></pre>
+<h3>Container</h3>
+<p>A row in a flexbox Grid.</p>
+<pre><code>propTypes: {
+  pad: React.PropTypes.bool,
+  col: React.PropTypes.bool,
+
+  // wrap in Block automatically
+  wrap: React.PropTypes.bool
+}
+</code></pre>
 <h3>Dots</h3>
 <p>Dots are the equivalent as used in the homescreen in iOS.
 Used to track location within a list of views.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
+  // Total dots
   total: React.PropTypes.number.isRequired,
+
+  // Index of active dot
   active: React.PropTypes.number.isRequired
 }
 </code></pre>
@@ -232,18 +288,35 @@ back out.</p>
 (useful for disabling or changing the area).</li>
 <li><code>onClose</code> calls a callback when closed by used.</li>
 </ul>
-<p>Props:</p>
 <pre><code>propTypes: {
   behavior: React.PropTypes.object,
   translate: React.PropTypes.object,
   from: React.PropTypes.oneOf([
     'left', 'right', 'top', 'bottom'
   ]),
-  closed: React.PropTypes.bool,
   touchableProps: React.PropTypes.object,
-  onClose: React.PropTypes.func
+  onClose: React.PropTypes.func,
+  open: React.PropTypes.bool,
+  dragger: React.PropTypes.bool,
+  draggerWidth: React.PropTypes.number,
+  width: React.PropTypes.number,
+  height: React.PropTypes.number
 }
 </code></pre>
+<h3>Gallery</h3>
+<p>Displays images in a swipeable gallery.</p>
+<pre><code>propTypes: {
+  images: React.PropTypes.array.isRequired,
+  width: React.PropTypes.number,
+  height: React.PropTypes.number,
+  onClose: React.PropTypes.func,
+  animationDuration: React.PropTypes.number,
+  animations: React.PropTypes.object
+}
+</code></pre>
+<h3>Grid</h3>
+<p>Allows you to easily access Container and Block through Grid.Container and
+Grid.Block.</p>
 <h3>Icon</h3>
 <p>We've taken the <a href="http://www.flaticon.com/packs/ios7-set-lined-1" target="_blank" rel="external">flaticon</a>
 set of icons and normalized their names and styling. SVG gives you
@@ -255,66 +328,80 @@ crisp edges in your interface. But, you can also use your own icon set.</p>
 <li><code>isInTitleBar</code> used internally</li>
 <li><code>svgProps</code> to pass to the svg</li>
 </ul>
-<p>Props:</p>
 <pre><code>propTypes: {
+  // width x height in pixels
   size: React.PropTypes.number,
-  path: React.PropTypes.string,
-  name: React.PropTypes.string,
-  color: React.PropTypes.string,
+
+  // an SVG file
+  file: React.PropTypes.string,
+
+  // props passed to svg
   stroke: React.PropTypes.number,
-  isInTitleBar: React.PropTypes.bool,
   shapeRendering: React.PropTypes.string,
-  svgProps: React.PropTypes.object
+  viewBox: React.PropTypes.string,
+  crisp: React.PropTypes.bool,
+
+  // internal props used for special styles
+  isInTitleBar: React.PropTypes.bool,
+  isInViewList: React.PropTypes.bool
 }
 </code></pre>
+<h3>Input</h3>
+<p>An input, much like HTML input.</p>
 <h3>Label</h3>
 <p>For use in forms.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
   title: React.PropTypes.string
 }
+
 </code></pre>
 <h3>List</h3>
-<p>Parent of ListItem, will automatically wrap an array with ListItem
-elements. Also accepts title for auto-adding Title components before.</p>
+<p>Parent for use with ListItem.
+Also accepts title for auto-adding Title components before.</p>
 <ul>
 <li><code>type</code> so far, just 'inset' is an option</li>
 <li><code>nowrap</code> don't wrap ListItem around components automatically</li>
 </ul>
-<p>Props:</p>
 <pre><code>propTypes: {
-  type: React.PropTypes.string,
+  // pass props to List.Item
   itemProps: React.PropTypes.object,
+
+  // List title
   title: React.PropTypes.node,
-  nowrap: React.PropTypes.bool,
+
+  // Automatically wrap children with List.Item
+  wrap: React.PropTypes.bool,
+
+  // Don't add padding
   nopad: React.PropTypes.bool
 }
 </code></pre>
 <h3>ListItem</h3>
-<p>Takes a variety of properties for constructing lists.</p>
-<ul>
-<li><code>title</code> displayed in bold at the top</li>
-<li><code>titleAfter</code> aligns to the right of title, for badges, time, etc</li>
-<li><code>titleSub</code> lighter sub title</li>
-<li><code>before</code> place an icon or element before the item</li>
-<li><code>after</code> place an icon or element after the item</li>
-<li><code>wrapper</code> wrap a link around the item</li>
-<li><code>underLeft</code> not implemented</li>
-<li><code>underRight</code> not implemented</li>
-<li><code>noicon</code> by default, listitems with links have an arrow (&gt;)</li>
-<li><code>nopad</code> remove default padding</li>
-</ul>
-<p>Props:</p>
+<p>Accessible as List.Item.
+Takes a variety of properties for constructing lists.</p>
 <pre><code>propTypes: {
+  // displayed in bold at the top
   title: React.PropTypes.node,
+
+  // aligns to the right of title, for badges, time, etc
   titleAfter: React.PropTypes.node,
+
+  // lighter sub title
   titleSub: React.PropTypes.node,
+
+  // place an icon or element before the item
   before: React.PropTypes.node,
+
+  // place an icon or element after the item
   after: React.PropTypes.node,
+
+  // wrap an element around the item, good for links
   wrapper: React.PropTypes.node,
-  underLeft: React.PropTypes.node,
-  underRight: React.PropTypes.node,
-  noicon: React.PropTypes.bool,
+
+  // show an icon indicating it's linked
+  icon: React.PropTypes.bool,
+
+  // don't add padding
   nopad: React.PropTypes.bool
 }
 </code></pre>
@@ -324,7 +411,6 @@ elements. Also accepts title for auto-adding Title components before.</p>
 <li><code>type</code> of 'alert' (just shows ok), <code>prompt</code> or <code>confirm</code> (ok, cancel).</li>
 <li><code>animationDuration</code> ms for animation to run</li>
 </ul>
-<p>Props:</p>
 <pre><code>propTypes: {
   type: React.PropTypes.string,
   animationDuration: React.PropTypes.number,
@@ -334,32 +420,50 @@ elements. Also accepts title for auto-adding Title components before.</p>
   handleClose: React.PropTypes.func
 }
 </code></pre>
+<h3>Modal</h3>
+<p>Displays a modal above current content.</p>
+<pre><code>propTypes: {
+  open: React.PropTypes.bool,
+  type: React.PropTypes.oneOf([
+    'alert', // OK
+    'confirm' // Cancel | OK
+  ]),
+  animationDuration: React.PropTypes.number,
+  animations: React.PropTypes.object,
+  onConfirm: React.PropTypes.func,
+  onCancel: React.PropTypes.func,
+  onClose: React.PropTypes.func
+}
+</code></pre>
 <h3>Popover</h3>
 <p>A menu that appears over content, accepts an array of children to
 be used as the menu items.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
+  // element the popover is pointing towards
+  target: React.PropTypes.object.isRequired,
+
+  // show it as open
   open: React.PropTypes.bool,
+
+  // pad in px towards edge of strings
   edgePadding: React.PropTypes.number,
+
+  // size of arrow
   arrowSize: React.PropTypes.number,
-  handleClose: React.PropTypes.func,
+
+  // after close event
+  onClose: React.PropTypes.func,
   animationDuration: React.PropTypes.number,
   animations: React.PropTypes.object
 }
-</code></pre>
-<h3>PopoverLink</h3>
-<p>Triggers a menu.</p>
-<p>Props:</p>
-<pre><code>
 </code></pre>
 <h3>Radio</h3>
 <p>A standard form radio</p>
 <h3>SearchBar</h3>
 <p>A bar that will automatically appear under TitleBars when in a view.
 Contains an input that you can pass props to directly.</p>
-<p>Props:</p>
-<pre><code>
-</code></pre>
+<h3>TextArea</h3>
+<p>A form textarea.</p>
 <h3>Title</h3>
 <p>Accepts children, renders as a title for groups of content in views.</p>
 <h3>TitleBar</h3>
@@ -376,17 +480,17 @@ Handles a variety of use cases for positioning content and animations.</p>
 <li><code>children</code> content in the middle.</li>
 </ul>
 <p>or just use <code>children</code> with a three-arity array.</p>
-<p>Props:</p>
 <pre><code>propTypes: {
   width: React.PropTypes.number,
   height: React.PropTypes.number,
-  animations: React.PropTypes.object,
-
-  // either this, with children node
   left: React.PropTypes.node,
   right: React.PropTypes.node,
+  transparent: React.PropTypes.bool,
 
-  transparent: React.PropTypes.bool
+  isInViewList: React.PropTypes.bool,
+
+  // attach to side of screen
+  attach: React.PropTypes.string
 }
 </code></pre>
 
